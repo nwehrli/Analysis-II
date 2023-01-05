@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.29)  5 JAN 2023 11:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.29)  5 JAN 2023 22:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -958,43 +958,31 @@ Underfull \hbox (badness 2418) in paragraph at lines 273--275
 []\OT1/cmr/m/n/8 Let $(\OML/cmm/m/it/8 x[]\OT1/cmr/m/n/8 )[]\OML/cmm/m/it/8 ; x[] \OMS/cmsy/m/n/8 2 \U/msb/m/n/8 R[]$\OT1/cmr/m/n/8 . The fol-lo-wi-ng de-fi-ni-ti-ons for
  []
 
-[2] [3]
-Overfull \hbox (0.5543pt too wide) in paragraph at lines 509--511
-\OT1/cmr/m/n/8 Wenn $\OML/cmm/m/it/8 x[] \OMS/cmsy/m/n/8 2 X$ \OT1/cmr/m/n/8 ein lo-ka-les Ex-tre-ma ist, dann gilt aus-ser-dem $\OMS/cmsy/m/n/8 r\OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x[]\OT1/cmr/m/n/8 ) =
- []
-
-[4]
-Overfull \hbox (12.26076pt too wide) in paragraph at lines 591--592
-[]\OT1/cmr/m/n/8 Jedes We-gin-te-gral in $\OML/cmm/m/it/8 f$ \OT1/cmr/m/n/8 ent-lang ei-ner ge-schlos-se-nen Kur-ve (Schlau-
- []
-
-[5]
-Overfull \hbox (36.38234pt too wide) in paragraph at lines 630--632
+[2] [3] [4] [5]
+Overfull \hbox (36.38234pt too wide) in paragraph at lines 663--665
 \OT1/cmr/m/n/8 Sei $\OML/cmm/m/it/8 f \OT1/cmr/m/n/8 : \OML/cmm/m/it/8 R \OMS/cmsy/m/n/8 7! \U/msb/m/n/8 R$ \OT1/cmr/m/n/8 be-schr[]ankt. $\OML/cmm/m/it/8 f$ \OT1/cmr/m/n/8 ist auf $\OML/cmm/m/it/8 R$ \OT1/cmr/m/n/8 in-te-grier-bar, falls $[][] \OML/cmm/m/it/8 s\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 P[]; P[]\OT1/cmr/m/n/8 ) =
  []
 
-[6]
-<include_degrees_circle.pdf, id=150, 399.16716pt x 395.28479pt>
+[6] [7]
+<include_degrees_circle.pdf, id=167, 399.16716pt x 395.28479pt>
 File: include_degrees_circle.pdf Graphic file (type pdf)
 <use include_degrees_circle.pdf>
-Package pdftex.def Info: include_degrees_circle.pdf  used on input line 825.
+Package pdftex.def Info: include_degrees_circle.pdf  used on input line 858.
 (pdftex.def)             Requested size: 248.48741pt x 246.07527pt.
- [7 <./include_degrees_circle.pdf>] [8
-
-] (AnalysisII.aux)
+ [8 <./include_degrees_circle.pdf>] (AnalysisII.aux)
 Package rerunfilecheck Info: File `AnalysisII.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34207 strings out of 478614
- 716022 string characters out of 2843122
- 1216803 words of memory out of 3000000
- 51702 multiletter control sequences out of 15000+600000
+ 34210 strings out of 478614
+ 716070 string characters out of 2843122
+ 1215803 words of memory out of 3000000
+ 51705 multiletter control sequences out of 15000+600000
  480016 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,15n,106p,10710b,604s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 108i,15n,106p,10710b,565s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\nshar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on AnalysisII.pdf (8 pages, 361487 bytes).
+Output written on AnalysisII.pdf (8 pages, 364935 bytes).
 PDF statistics:
  403 PDF objects out of 1000 (max. 8388607)
  129 named destinations out of 1000 (max. 500000)

@@ -443,27 +443,68 @@ For a function $f: \R^n \to \R^t$ we denote higher order partial derivatives wit
     \[\text{Hess}_f(x_0) := \left(\pdv{f(x_0)}{x_i, x_j}\right)_{1\le i,j \le n}\] 
     Sometimes we also denote it by $\nabla^2f(x_0)$ or $H_f(x_0)$.
 \end{mainbox}
-\subsection{Taylorpolynomials}
-Sei \(k \le 1\) und \(f: \X \mapsto \R\) ist eine Funktion der Klasse \(C^k\) auf \(\X\). Sei \(x_0 \in \X\) fix. Das \(k\)-te Taylorpolynom von \(f\) am Punkt \(x_0\) ist das Polynom in \(n\) Variablen vom Grad \(\le k\):
+\subsection{Taylor polynomials}
+Let \(k \le 1\) and \(f: \X \mapsto \R\) be a funciton of class \(C^k\) on \(\X\), and fix \(x_0 \in \X\). The \(k\)-th Taylor polynomial of \(f\) at the point \(x_0\) is the polynomial in \(n\) variables of degree \(\le k\) given by
 \begin{align*}
   &T_k f(y; x_0) = f(x_0) + \sum_{i=1}^n \partial_i f(x_0) \cdot y_i + \dots \\
   &+ \sum_{m_1 + \cdots + m_n = k} \frac{1}{m_1! \cdots m_n!} \pdv{^k f(x_0) }{x_1^{m_1} \cdots \partial x_n^{m_n}} \cdot y_1^{m_1} \cdots y_n^{m_n}
 \end{align*}
+Using our new notation for higher-order derivatives we can denote the Taylor polynomial by
+\[T_k(y; x_0) = \sum_{|m| \leq k} \frac{1}{m!}\partial_{x^m}^{|m|}f(x_0)\cdot y^m\]
+with $m! = m_1!m_2!\cdot ... \cdot m_n!$
 
-\subsubsection*{Beispiele}
+\subsubsection*{Examples}
 \begin{align*}
   T_1 f(\vec{x}; x_0) &:= f(x_0) + \nabla f(x_0) \cdot \vec{x} \\
   T_2 f(\vec{x}; x_0) &:= T_1f + \frac{1}{2} \cdot \vec{x}^\top \cdot \text{Hess}_f(x_0) \cdot \vec{x}
 \end{align*}
 
-\subsection{Definit}
-Eine symmetrische Matrix ist
+
+\subsection{Extrema}
+\subsubsection*{Local Extrema}
+Let \(f: \X \subset \R^n \mapsto \R\) be differentiable and \(\X\) open. 
+
+Then \(x_0 \in \X\) is a \textbf{local Maximum (Minimum)} if there exists an $r > 0, r \in \R$ and \(B_{x_0}(r) = \{x\in \R^n \mid ||x-x_0|| < r \} \subset \X\) such that:
+\[\forall x \in B_{x_0}(r): f(x) \le (\ge) f(x_0)\]
+If \(x_0 \in \X\) is a local extrema, we additionally have \(\nabla f(x_0) = 0\).
+
+\subsubsection*{Critical point}
+A point \(x_0 \in \X\) with \(\nabla f(x_0) = 0\) is a \textbf{critical point}. 
+
+Critical points are candidates for local extrema.
+
+If additionally \(\det(\text{Hess}_f(x_0)) \ne 0\), then \(x_0\) is a \textbf{non-degenerate} critical point.
+
+\subsubsection*{Saddle point}
+If a critical point is neither a maximum nor a minimum, we call it a \textbf{saddle point}.
+
+\subsubsection*{Global Extrema}
+Let \(f: K \mapsto \R\) and \(K\) compact, then a global extrema of \(f\) exists and is either at a point $x_0$ in the interior of \(K\) or on the boundary of $K$. To determine such an global extrema we split \(K\) into it's interior \(\X\) and the boundary \(B\). 
+
+First we determine the critical points of \(\X\). To determine the Maximas/Minimas \(B\), we will need Knowledge from Analysis I (redefine the boundary as a union of sets dependend on 1 variable, i.e. Linesegments).
+\subsubsection*{Testing critical points}
+Let \(f: \X \subseteq \R^n \mapsto \R, \X\) open and \(f\in C^2\). Let \(x_0\) be a \textbf{non-degenerate critical point} of \(f\). Then we:
+\begin{enumerate}
+  \item $\text{Hess}_f(x_0)$ pos. def. \(\implies\) $x_0$ is a local Minimum.
+  \item $\text{Hess}_f(x_0)$ neg. def. \(\implies\) $x_0$ is a local Maximum.
+  \item $\text{Hess}_f(x_0)$ indefinite \(\implies\) $x_0$ is a saddle point.
+\end{enumerate}
+If \(x_0\) is a \textbf{degenerate critical point}, we can't conclude anything in general. In such a case we would have to verify the signs in the neighborhood of $x_0$. (Not much information found on how to do that in multi-variable calculus)
+\subsubsection*{Critical points with constraints}
+If we want to determine the Minimas/Maximas of a function \(f: \X \mapsto \R\) with the constraint \(g(x) = 0, g: \X \mapsto \R\), we can use the Lagrange multipliers.
+\begin{subbox}{Lagrange multipliers}
+  Let \(\X \subset \R^n\) be open and \(f,g: \X \mapsto \R\) functions of \(C^1\). If $x_0$ is a local extremum of $f$ restricted to the set \[Y = \{x \in \X \mid g(x) = 0\}\] then either $\nabla g(x_0) = 0$, or there exists $\lambda \in \R$ such that 
+     \[\nabla f(x_0) = \lambda \cdot \nabla g(x_0)\] and \(g(x_0) = 0\).
+\end{subbox}
+
+\subsection{Definite}
+A symmetric (non-singular) matrix $A$, det$A \ne 0$ is
 \begin{itemize}
-  \item \textbf{positiv definit}, falls alle Eigenwerte positiv sind.
-  \item \textbf{negativ definit}, falls alle Eigenwerte negativ sind.
-  \item \textbf{indefinit}, falls sowohl positive als negative Eigenwerte existieren.
+  \item \textbf{positive definite} $\iff$ all Eigenvalues are positive $\iff$ all principal minors of $A$ are positive
+  \item \textbf{negativ definite} $\iff$ all E.V. are negative $\iff$ $-A$ is positive definite.
+  \item \textbf{indefinite} if it has positive and negative Eigenvalues.
 \end{itemize}
-Eigenwerte können mit dem charakteristischen Polynom gefunden werden:
+Eigenvalues can be found with the characterstic polynomial:
 \begin{align*}
   \text{det} \left(
   \begin{pmatrix}
@@ -484,8 +525,8 @@ Eigenwerte können mit dem charakteristischen Polynom gefunden werden:
   \end{pmatrix}\\
   &\Rightarrow ad - (a + d) \lambda + \lambda^2 - bc = 0
 \end{align*}
-Für nichtsymmetrische Matrizen müssen wir für jeden Vektor \(v\) testen, ob \(v^\top A v > 0\) (bzw. \(< 0\)) gilt.
-\subsubsection*{Determinante in drei Dimensionen}
+For non-symmetric Matrices we have to test for all Vectors \(v\), if \(v^\top A v > 0\) (rsp. \(< 0\)).
+\subsubsection*{3D Determinant}
 \begin{align*}
   a \cdot \text{det}
   \begin{pmatrix}
@@ -503,40 +544,16 @@ Für nichtsymmetrische Matrizen müssen wir für jeden Vektor \(v\) testen, ob \
     g & h
   \end{pmatrix}
 \end{align*}
-\subsection{Extrema}
-\subsubsection*{Lokale Extrema}
-Sei \(f: \X \subset \R^n \mapsto \R\) differenzierbar und \(\X\) eine offene Menge. Dann ist \(x_0 \in \X\) ein lokales Maximum (Minimum) falls wir eine Umgebung \(B_r(x_0) = \{x\in \R^n \mid ||x-x_0|| < r \} \subset \X\) finden können, wo gilt:
-\[\forall x \in B_r(x_0): f(x) \le (\ge) f(x_0)\]
-Wenn \(x_0 \in \X\) ein lokales Extrema ist, dann gilt ausserdem \(\nabla f(x_0) = 0\).
 
-\subsubsection*{Kritische Punkte}
-Ein Punkt \(x_0 \in \X\) wo \(\nabla f(x_0) = 0\) gilt ist ein kritischer Punkt. Wenn \(\det(\text{Hess}_f(x_0)) \ne 0\), dann ist \(x_0\) nicht-degeneriert.
-
-\subsubsection*{Sattelpunkt}
-Wenn ein kritischer Punkt weder Maximum noch Minimum ist, dann nennen wir ihn Sattelpunkt.
-
-\subsubsection*{Globale Extrema}
-Sei \(f: K \mapsto \R\) und \(K\) kompakt, dann existiert ein globales Extrema von \(f\) und es ist entweder ein kritischer Punkt oder am Rand von \(K\). Um ein solches Extrema zu bestimmen, teilen wir \(K\) in sein Inneres \(\X\) und den Rand \(B\) auf. 
-
-Nun bestimmen wir zuerst wie zuvor die kritischen Punkte von \(\X\). Um die Maximas/Minimas von \(B\) zu bestimmen, benötigen wir nur Wissen aus Analysis I (da von der Form \(\R \mapsto \R\)).
-\subsubsection*{Testen von kritischen Punkten}
-Sei \(f: \X \subseteq \R^n \mapsto \R, \X\) offen und \(f\in C^2\). Sei \(x_0\) ein nicht-degenerierter kritischer Punkt von \(f\). Dann gilt:
-\begin{enumerate}
-  \item $\text{Hess}_f(x_0)$ pos. def. \(\implies\) $x_0$ ist lokales Minimum.
-  \item $\text{Hess}_f(x_0)$ neg. def. \(\implies\) $x_0$ ist lokales Maximum.
-  \item $\text{Hess}_f(x_0)$ indefinit \(\implies\) $x_0$ ist Sattelpunkt.
-\end{enumerate}
-Dies funktioniert nicht, wenn \(x_0\) ein degenerierter kritischer Punkt ist. In einem solchen Fall müssen die Vorzeichen überprüft werden.
-\subsubsection*{Kritische Punkte mit Nebenbedingungen}
-Wenn wir Minimas/Maximas einer Funktion \(f: \X \mapsto \R\) mit einer Nebenbedingung \(g(x) = 0, g: \X \mapsto \R\) bestimmen wollen, können wir dafür Lagrange-Multiplikatoren verwenden.
-\begin{subbox}{Lagrange-Multiplikator}
-  Sei \(\X \subset \R^n\) offen und \(f,g: \X \mapsto \R\) Funktionen der Klasse \(C^1\). Wenn \(Y = \{x \in \X \mid g(x) = 0\) ist, dann ist \(x_0 \in Y\) ein lokales Extrema, welches die Nebenbedingung erfüllt, falls 
-  \[\exists \delta > 0, f(y) \le (\ge) f(x_0), \quad \forall y \in B_\delta(x_0) \cap Y\]
-  gilt. Nun ist entweder \(\nabla g(x_0) = 0\) oder \(\exists \lambda \in \R, \nabla f(x_0) = \lambda \cdot \nabla g(x_0)\), wobei \(\lambda\) dann Lagrange-Multiplikator gennant wird.
+\begin{subbox}{Principal Minor}
+    The $k$-th leading principal minor of $A$ is given by 
+    \[M_k = \text{det}\left((A)_{1:k,1:k}\right)\]
 \end{subbox}
-\section{Integrale in \texorpdfstring{\(\R^n\)}{Rⁿ}}
-\subsection{Einfache Integrale}
-Für \(f: \R \mapsto \R^n\) ist das Integral definiert als
+
+
+\section{Integrals in \texorpdfstring{\(\R^n\)}{Rⁿ}}
+\subsection{Simple Integrals}
+For \(f: \R \mapsto \R^n\) we define the integral of $f$ as
 \[\int_a^b f(t)dt = 
 \begin{pmatrix*}
   \int_a^b f_1(t) dt \\
@@ -545,79 +562,95 @@ Für \(f: \R \mapsto \R^n\) ist das Integral definiert als
 \end{pmatrix*}
 \]
 
-\begin{mainbox}{Kurve}
-  Eine parametrisierte Kurve in \(\R^n\) ist eine stetige Ableitung \(\gamma: \left[a,b\right] \mapsto \R^n\) wobei \(\gamma\) stückweise in \(C^1\) ist, d.h. wir können \(\gamma\) so partitionieren, das alle Partitionen in \(C^1\) sind. Eine parametrisierte Kurve muss nicht injektiv sein.
-\end{mainbox}
-\subsection{Wegintegrale}
-Sei \(\gamma : \left[a,b\right] \mapsto \R^n\) eine parametrisierte Kurve und \(\X \subset \R^n\) eine Menge, welche das Bild von \(\gamma\) beinhaltet. Sei \(f : \X \mapsto \R^n\) eine stetige Funktion. Dann ist ein Wegintegral (auch: Kurvenintegral) definiert als:
-\[\int_\gamma f(s) ds = \int_a^b f(\gamma(t)) \cdot \gamma'(t) dt\]
+\subsection{Line Integrals (Path Integrals)}
+\begin{mainbox}{A parameterized curve}
+    A parameterized curve in \(\R^n\) is a continous map \(\gamma: \left[a,b\right] \mapsto \R^n\) that is piecewise in \(C^1\), 
+    i.e. \(\exists k > 1, k \in \N\) and a partition \(a = t_0 < t_1 < ... < t_k = b\), such that 
+    \[\gamma|_{[t_{i-1}, t_i]} \in C^1, \forall 1 \leq i \leq k.\] 
+    A parameterized curve does not have to be injective.
+  \end{mainbox}
+  \textbf{Useful trick:}
 
-Wegintegrale haben folgende Eigenschaften:
+  In general if $\gamma: [a, b] \to \R^n (t \mapsto \gamma(t))$ is a curve, then $\alpha: [a,b] \to \R^n$ with $\alpha(t) := \gamma(b+a - t)$ traces the same curve in the opposite direction. 
+  
+\begin{mainbox}{Line(Path) Integrals}
+    Let \(\gamma : \left[a,b\right] \mapsto \R^n\) be a parameterized curve and \(\X \subset \R^n\) a set containing the image of $\gamma$, and let $f: \X \to \R^n$ be a continous function. The \textbf{Line Integral (Path Integral)} is defined as 
+    \[\int_\gamma f(s) \mathop{ds} = \int_a^b f(\gamma(t)) \cdot \gamma'(t) \mathop{dt}\]
+    For Notation $s$ represents $\gamma(t)$ and $\mathop{ds}$ represents $\gamma'(t)\mathop{dt}$.
+\end{mainbox}
+
+Line Integrals have following properties:
 \begin{enumerate}
-  \item Sie sind unabhängig von orientierungserhaltenden Reparametrisierungen, d.h. sie hängen nur vom Bild der Kurve und nicht von der Parametrisierung ab.
+  \item It is independent of orientation preserving reparameterization of the curve:
   \begin{align*}
     \gamma&: [a,\, b] \mapsto \R^n\\
+    \sigma&: [c, \, d] \mapsto [a, \, b], \ \sigma'(t) > 0 \ \forall t \in (c, \ d)\\
     \tilde{\gamma}&: [c,\, d] \mapsto \R^n\\
-    \varPhi&: [c, \, d] \mapsto [a, \, b]\\
-    \tilde{\gamma} &= \gamma \circ \varPhi = \gamma(\varPhi)\\
+    \tilde{\gamma} &= \gamma \circ \sigma = \gamma(\sigma)\\
     \Rightarrow &\int_\gamma f(s) \; ds = \int_{\tilde{\gamma}} f(s) \; ds
   \end{align*}
-  \item Sei \(\gamma_1 + \gamma_2\) ein Pfad gegeben durch die Vereinigung zweier Kurven. Dann gilt
+  \item We have $\gamma_1: [a, \ b] \to \X \subset \R^n, \gamma_2: [c, \ d] \to \X$ with $\gamma_1(b) = \gamma_2(c)$. We can now concatenate these 2 curves to \(\gamma_1 + \gamma_2\) 
   \begin{align*}
     \gamma_1 + \gamma_2 &:=
     \begin{cases}
       \gamma_1(t) \quad& t \in [a, \, b]\\
-      \gamma_2(t) \quad& t \in [b, \, d + b - c]
+      \gamma_2(t - b + c) \quad& t \in [b, \, b+ (d - c)]
     \end{cases}\\
     \int_{\gamma_1 + \gamma_2} f(s) \; ds &= \int_{\gamma_1} f(s) \; ds + \int_{\gamma_2} f(s)\; ds
   \end{align*}
-  \item Sei \(\gamma : \left[a,b\right] \mapsto \R^n\) ein Pfad und \(-\gamma\) ist der Pfad in die Gegenrichtung (d.h. \((-\gamma)(t) = \gamma(a + b - t)\)). Dann gilt
+  \item Let \(\gamma : \left[a,b\right] \mapsto \R^n\) be a path and \(-\gamma: [a, b] \to \R^n\) the same path in the opposite direction (i.e. \((-\gamma)(t) = \gamma(a + b - t)\)). Then we have
   \[\int_{-\gamma} f(s)ds = -\int_\gamma f(s) ds\]
 \end{enumerate}
 
 \subsection{Potential}
-Ein differenzierbares skalares Feld \(g: \X \subset \R^n \mapsto \R\) mit \(\nabla g = f, f: \X \mapsto \R^n\) wird ein \textbf{Potential} von \(f\) genannt. Dies kann wie folgt verwendet werden:
+A differentiable function \(g: \X \subset \R^n \mapsto \R\) with \(\nabla g = f, f: \X \mapsto \R^n\) is called a \textbf{potential} for \(f\). This can be used as follows:
 \begin{align*}
   \int_\gamma f \; ds &= \int_a^b f(\gamma(t)) \cdot \gamma'(t) \; dt\\
   &= \int_a^b \nabla g(\gamma(t)) \cdot \gamma'(t) \; dt\\
   &= \int_a^b \frac{d}{dt} (g \circ \gamma) \; dt\\
   &= (g \circ \gamma)(b) - (g \circ \gamma)(a)
 \end{align*}
+For a function $f: \R^n \to \R^n$ there is not always a potential $g$! And continuity of $f$ is not sufficient for the existence of a potential for $f$. (Counterexample: $f(x,y) = (2xy^2,2x)$)
+\subsection{Conservative Vector fields}
+\begin{subbox}{Conservative Vector fields}
+    $f: \X \to \R^n$ continous Vector field. If for any $x_1, x_2 \in \X$ the line integrals $\int_{\gamma}f \mathop{ds}$ for any curve between $x_1,x_2$ are equal, $f$ is called \textbf{conservative}.
+\end{subbox}
 
-\subsection{Konservative Vektorfelder}
-Sei \(\X\) offen und \(f: \X \subset \R^n \mapsto \R^n\) ein stetiges Vektorfeld. Die folgenden Aussagen sind äquivalent:
+Let \(\X\) be open and a path-connected subset of $\R^n$. Let \(f: \X \subset \R^n \mapsto \R^n\) be a continous vector field. The following are equivalent:
 \begin{enumerate}
-  \item Falls für irgendwelche \(x_1, x_2 \in \X\) das Wegintegral \(\int_\gamma f(s) ds\) unabhängig von der Kurve in \(\X\) von \(x_1\) nach \(x_2\) ist, dann ist das Vektorfeld \(f\) konservativ.
-  \item Jedes Wegintegral in \(f\) entlang einer geschlossenen Kurve (Schlaufe) ist 0.
-  \item Ein Potential für \(f\) existiert.
+  \item $f$ is the gradient of a function $g: \X \to \R$, i.e. $f = \nabla g$.
+  \item The line integral of $f$ is independent of the path between any 2 points.
+  \item The line integral of $f$ along any closed path is always $0$. (A closed path $\gamma: [a, b] \to \X$ fulfills $\gamma(a) =\gamma(b)$)
 \end{enumerate}
-Es gilt ausserdem folgende notwendige, aber nicht ausreichende Bedingung:
-\[f \text{ ist konservativ }\implies \pdv{f_i}{x_j} = \pdv{f_j}{x_i}\]
+We additionally have this necessary but not sufficient condition:
+\[f \text{ is conservative }\implies \pdv{f_i}{x_j} = \pdv{f_j}{x_i} \quad \forall i,\, j\]
 
-\begin{subbox}{Wegzusammenhängend}
-  Sei \(\X \subset \R^n\) offen. \(\X\) ist wegzusammenhängend, falls für jedes Paar an Punkten \(x, y \in \X\) ein Pfad \(\gamma : \left(0,1\right] \mapsto \X\) existiert, der in \(C^1\) ist und \(\gamma(0) = x, \gamma(1) = y\) hält.
+\begin{subbox}{Path-connected set}
+  Let \(\X \subset \R^n\) be open. \(\X\) is path-connected, if for every pair of points \(x, y \in \X\) there exists a parameterized curve \(\gamma : \left[0, 1\right] \mapsto \X\), such that \(\gamma(0) = x, \gamma(1) = y\).
 \end{subbox}
 
-\begin{subbox}{Sternförmig}
-  Eine Teilmenge \(\X \subset \R^n\) wird sternförmig genannt, falls \(\exists x_0 \in \X\) so dass \(\forall x \in \X\) eine Linie \(x_0\) nach \(x\) existiert, die komplett in \(\X\) enthalten ist. 
-  \[\X \text{ ist konvex} \implies \X \text{ ist sternförmig}\]
+\begin{subbox}{Starshaped set}
+  A subset \(\X \subset \R^n\) is starshaped if there \(\exists x_0 \in \X\) such that, \(\forall x \in \X\) the line segment joining \(x_0\) to \(x\) is contained in \(\X\). 
+  \[\X \text{ convex} \implies \X \text{ starshaped}\]
 \end{subbox}
-Wenn \(\X\) eine sternförmige, offene Teilmenge von \(\R^n\) und \(f \in C^1\) ein Vektorfeld ist, dann gilt:
+If \(\X\) is a starshaped, open subset of \(\R^n\) and \(f \in C^1\) a vector field, we have:
 \begin{align*}
-  \partial_j f_i = \partial_i f_j \quad \forall i,\, j
-  \quad &\Rightarrow \quad \text{$f$ ist konservativ}\\
+    \pdv{f_i}{x_j} = \pdv{f_j}{x_i} \quad \forall i,\, j
+  \quad &\Rightarrow \quad \text{$f$ is conservative}\\
+  \text{For $f: \X \subset \R^3 \to \R^3, f \in C^1$ we also have: }\\
   \text{curl}(f) = \begin{pmatrix}
     0\\0\\0
   \end{pmatrix}
-  \quad &\Rightarrow \quad \text{$f$ ist konservativ}
+  \quad &\Rightarrow \quad \text{$f$ is conservative}
 \end{align*}
-\(\text{curl}(f)\) ist definiert als
+(As above only for $f: \X \subset \R^3 \to \R^3$) 
+\\\(\text{curl}(f)\) is defined as
 \[\text{curl}(f) := \begin{pmatrix}
   \partial_y f_3 - \partial_z f_2 \\
   \partial_z f_1 - \partial_x f_3 \\
   \partial_x f_2 - \partial_y f_1
 \end{pmatrix}\]
-\subsection{Riemann-Integral in \texorpdfstring{\(\R^2\)}{R²}}
+\subsection{Riemann Integral in \texorpdfstring{\(\R^2\)}{R²}}
 \begin{subbox}{Partition in zwei Dimensionen}
   Eine Partition \(P\) eines abgeschlossenen Rechtecks \(R = \left[a,b\right] \times \left[c,d\right]\) ist eine Menge von Rechtecken. Für jede Partition \(P_x : a = x_0 < \ldots < x_n = b\) von \(\left[a,b\right]\) und \(P_y\) (analog) erhalten wir eine Partition \(P_{i,j} = \left[x_{i-1}, x_i\right] \times \left[y_{j-1},y_j\right]\) von \(R\) mit der Fläche \(\mu({P_{i,j}} = (x_i - x_{i-1})(y_j - y_{j-1}))\).
 \end{subbox}
