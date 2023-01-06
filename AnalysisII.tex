@@ -40,7 +40,7 @@
 
 % Mathematical typesetting & symbols
 \usepackage{amsthm, mathtools, amssymb} 
-\usepackage{marvosym, wasysym}
+\usepackage{marvosym, wasysym, dsfont}
 \usepackage{derivative}
 \allowdisplaybreaks
 
@@ -79,8 +79,9 @@
 \def\C{\mathbb{C}}
 \def\Q{\mathbb{Q}}
 \def\N{\mathbb{N}}
-\def\X{\mathcal{X}}
+\def\X{\underline{\overline{X}}}
 \def\dx{\text{ d}x}
+\def\P{\mathcal{P}}
 
 \begin{document}
 
@@ -320,7 +321,7 @@ A set \(\X \subset \R^n \) is
 \begin{itemize}
   \item \((a,b) \subset \R\) is open.
   \item \(\left[a,b\right) \subset \R\) is neither open nor closed.
-  \item \(\R^n\) and \(\varnothing\) are both open and closed. There exists no other set in $\R^n$ which is both open and closed.
+  \item \(\R^n\) and \(\emptyset\) are both open and closed. There exists no other set in $\R^n$ which is both open and closed.
   \item If $X \subseteq \R^n, Y \subseteq \R^m$ are both bounded (rsp. closed/compact) then $X \times Y \subseteq \R^{n+m}$ is bounded (rsp. closed/compact)
   \item In particular the cartesian product of compact intervals $I_i \in \R$: $I_1 \times I_2 \times ... \times I_n = \{(x_1,x_2,...,x_n) \in \R^n \mid x_i \in I_i\}$ is compact (i.e. closed and bounded).
   \item Let $f: \R^n \mapsto \R^m$ be continous. Then for every closed(/open) set $Y \subseteq \R^m$, the set $f^{-1}(Y)$ is closed(/open). 
@@ -329,7 +330,7 @@ A set \(\X \subset \R^n \) is
   Every bounded sequence in \(\R^n\) has a converging partial sequence.
 \end{subbox}
 \begin{subbox}{Min-Max-Theorem}
-  Let \(\X \subset \R^n, \X \ne \varnothing\) be compact and \(f: \X \to \R\) a continous function. Then \(f\) is bounded and achieves a max and a min. I.e. $\exists x^+,x^- \in \X$, such that
+  Let \(\X \subset \R^n, \X \ne \emptyset\) be compact and \(f: \X \to \R\) a continous function. Then \(f\) is bounded and achieves a max and a min. I.e. $\exists x^+,x^- \in \X$, such that
   \[f(x^+) = \sup_{x\in \X} f(x) \quad f(x^-) = \inf_{x \in \X} f(x)\]
 \end{subbox}
 
@@ -650,72 +651,123 @@ If \(\X\) is a starshaped, open subset of \(\R^n\) and \(f \in C^1\) a vector fi
   \partial_z f_1 - \partial_x f_3 \\
   \partial_x f_2 - \partial_y f_1
 \end{pmatrix}\]
-\subsection{Riemann Integral in \texorpdfstring{\(\R^2\)}{R²}}
-\begin{subbox}{Partition in zwei Dimensionen}
-  Eine Partition \(P\) eines abgeschlossenen Rechtecks \(R = \left[a,b\right] \times \left[c,d\right]\) ist eine Menge von Rechtecken. Für jede Partition \(P_x : a = x_0 < \ldots < x_n = b\) von \(\left[a,b\right]\) und \(P_y\) (analog) erhalten wir eine Partition \(P_{i,j} = \left[x_{i-1}, x_i\right] \times \left[y_{j-1},y_j\right]\) von \(R\) mit der Fläche \(\mu({P_{i,j}} = (x_i - x_{i-1})(y_j - y_{j-1}))\).
+\subsection{Riemann Integral in \texorpdfstring{\(\R^n\)}{Rⁿ}}
+\begin{subbox}{Cuboid / box in $\R^n$}
+    A \textbf{cuboid} or box $Q \subset \R^n$ is a set of the form
+    $$Q = [a_1, b_1] \times [a_2,b_2] \times ... \times [a_n,b_n], \quad a_k, b_k \in \R$$
+    The \textbf{volume function} vol($\cdot$) assigns to each cuboid a real number by the rule 
+    $$\text{vol}(Q) = \prod_{k = 1}^{n}(b_k - a_k) = \mu(Q).$$
+    For a given cuboid $Q$ we call $\P = \{Q_1, Q_2, ..., Q_m\}$ a \textbf{partition} of $Q$ if the $Q_k$ are cuboids such that
+    \begin{align*}
+        &1. Q = \bigcup_{k = 1}^{m} Q_k\\
+        &2. \forall \ 1 \leq k,l \leq m: \text{Int}(Q_k) \cap \text{Int}(Q_l) = \emptyset
+    \end{align*}
 \end{subbox}
-Mit den Hilfsdefinitionen
-\[f_{i,j} = \inf_{P_{i,j}} f(x,y), \quad F_{i,j} = \sup_{P_{i,j}} f(x,y)\]
-können wir die Unter- und Obersumme bestimmen:
+Let $f: Q \subset \R^n \to \R$ for some cuboid $Q$. Let $\P = \{Q_1, ...,Q_m\}$ be a partition of $Q$. We define the upper resp. lower sum of $f$ with respect to $\P$ by 
 \begin{align*}
-  s(P_x \times P_y) &= \sum_{i=1}^n \sum_{j=1}^m f_{i,j} \cdot \mu(P_{i,j}) \\
-  S(P_x \times P_y) &= \sum_{i=1}^n \sum_{j=1}^m F_{i,j} \cdot \mu(P_{i,j})
+    U(f, \P) &= \sum_{k = 1}^{m} \text{sup}_{x \in Q_k} f(x) \cdot \text{vol}(Q_k),\\
+    L(f, \P) &= \sum_{k = 1}^{m} \text{inf}_{x \in Q_k} f(x) \cdot \text{vol}(Q_k).
 \end{align*}
-Sei \(f: R \mapsto \R\) beschränkt. \(f\) ist auf \(R\) integrierbar, falls \(\sup_{(P_x, P_y)} s(P_x, P_y) = \inf_{(P_x, P_y)} S(P_x, P_y)\) gilt. Dieser Wert ist dann definiert als:
-\[\int_R f(x,y) \mathop{d(x,y)} \text{ oder } \int\int_R f(x,y) \mathop{d(x,y)}\]
+Accordingly we define the upper resp. lower sum of $f$ by 
+\begin{align*}
+    \underline{I}(f) &= \text{inf}\{U(f, \P) \mid \P \text{ is a partition of } Q\}\\
+    \overline{I}(f) &= \text{sup}\{L(f, \P) \mid \P \text{ is a partition of } Q\}
+\end{align*}
+If the lower and upper sum of $f$ are equal we say that $f$ is Riemann integrable and write
+$$\int_Q f \mathop{dx} = \underline{I}(f) = \overline{I}(f).$$
 
-\subsubsection*{Nicht-Quadratische Flächen}
-Sei \(A \subset R\) eine Fläche. \(f : A \subset R \mapsto \R\) ist auf \(A\) integrierbar, falls \(f \cdot \X_A\) auf \(R\) integrierbar ist. 
-\[\int_R f(x,y) \cdot \X_A(x,y) \mathop{d(x,y)} \text{ oder } \int_A f(x,y) \mathop{d(x,y)}\]
-\(\X_A\) ist die charakteristische Funktion von \(A\).
+\subsubsection{General sets}
+Let $\X \subset \R^n$ be some bounded set and let $f: \X \to \R$. We can define an indicator function by
+\[\mathds{1}_{\X}(x) = 
+\begin{cases}
+    1, \quad x \in \X\\
+    0, \quad \text{else}
+\end{cases}, 
+(\mathds{1}_{\X} f)(x) 
+\begin{cases}
+    f(x), \quad& x \in \X\\
+    0, \quad& \text{else} 
+\end{cases}.\]
+Now given some cuboid $Q$, s.t. $\X \subseteq Q$ we define 
+\[\int_{\X}f \mathop{dx} = \int_{Q}(\mathds{1}_{\X}f)(x)\mathop{dx}\]
+provided the latter integral exists. 
 
-\subsubsection*{Eigenschaften des Integrals}
-Sei \(f,g : A \subset R \mapsto \R\) auf \(A\) integrierbar, dann gilt folgendes:
+Note that in general $(\mathds{1}_{\X}f)(x)$ is not continous on $Q$. But if $\X$ is \textit{Jordan-measurable}(i.e. $\mathds{1}_{\X}(x)$ is integrable) and $f$ is continous on $\X$, then one can prove that $(\mathds{1}_{\X}f)(x)$ is integrable on $Q$.
+
+\subsubsection{Properties of the Integral}
+Let $f, g: Q \subset \R^n \to \R$:
 \begin{enumerate}
-  \item \(\alpha, \beta \in \R: \alpha f + \beta g\) ist integrierbar:
-  \[\int_A \alpha f + \beta g \mathop{d(x,y)} = \alpha \int_A f \mathop{d(x,y)} + \beta \int_A g \mathop{d(x,y)}\]
-  \item Falls \(\forall (x,y) \in A: f(x,y) \le g(x,y)\), dann gilt:
-  \[\int_A f(x,y) \mathop{d(x,y)} \le \int_A g(x,y) \mathop{d(x,y)}\]
-  \item Falls \(f(x,y) \ge 0\) und \(B \subset A\), dann gilt:
-  \[\int_B f(x,y) \mathop{d(x,y)} \le \int_A f(x,y) \mathop{d(x,y)}\]
-  \item Dreiecksungleichung:
-    \[\left| \int_A f(x,y) \mathop{d(x,y)}\right| \le \int_A \left|f(x,y)\right| \mathop{d(x,y)}\]
-  \item Falls \(f = 1\), dann gilt:
-  \[\int_A f(x,y) \mathop{d(x,y)} = \int_A 1 \mathop{d(x,y)} = \gamma(A)\]
+  \item If $f$ is continous and bounded on $Q$, then $f$ is integrable.
+  \item If $f,g$ integrable, $\alpha, \beta \in \R$, then $\alpha f + \beta g$ is integrable:
+  \[\int_Q \alpha f + \beta g \mathop{dx} = \alpha \int_Q f \mathop{dx} + \beta \int_Q g \mathop{dx}\]
+  \item If \(\forall x \in Q: f(x) \le g(x)\), then:
+  \[\int_Q f(x) \mathop{dx} \le \int_Q g(x) \mathop{dx}\]
+  \item If \(f(x) \ge 0\), then:
+  \(\int_Q f(x) \mathop{dx} \geq 0\)
+  \item Triangle inequality:
+    \[\left| \int_Q f(x) \mathop{dx}\right| \le \int_Q \left|f(x)\right| \mathop{dx} \leq (\text{sup}_{Q}f)(\text{vol}Q)\]
 \end{enumerate}
 
 
-\begin{mainbox}{Satz von Fubini}
-  Für eine Region \(D \subset \R^2 := \{\left(x,y\right) \mid a \le x \le b, g(x) < y < h(x)\}\) gilt:
-  \[\int_D f(x,y)\mathop{dx} \mathop{xy} = \int_a^b \left(\int_{g(x)}^{h(x)} f(x,y) \mathop{dy}\right)\mathop{dx}\]
-  Für eine Region \(D \subset \R^2 := \{ \left(x,y\right) \mid c \le y \le d, G(y) < x < H(y)\) gilt:
-  \[\int_D f(x,y) \mathop{dx} \mathop{dy} = \int_c^d \left(\int_{G(y)}^{H(y)} f(x,y)\mathop{dx}\right) \mathop{dy}\]
-\end{mainbox}
-\begin{subbox}{Satz von Stolz}
-  Sei \(f: R \mapsto \R\) integrierbar auf \(R = \left[a,b\right] \times \left[c,d\right]\). Sei \(y \mapsto f(x,y)\) integrierbar auf \(\left[c,d\right]\) für jedes \(x \in \left[a,b\right]\). Dann folgt:
-  \[\int_R f(x,y) \mathop(d(x,y)) = \int_a^b \left(\int_c^d f(x,y) \mathop{dy}\right) \mathop{dx}\]
-\end{subbox}
-\begin{mainbox}{Nullmenge}
-  Eine Nullmenge \(X \subset R \subset \R^2\) ist eine Menge, so dass für alle \(\epsilon > 0\) eine endliche Menge an Rechtecken \(R_k, 1 \le k \le n\) existiert, so dass:
-  \[X \subset \bigcup_{k = 1}^n R_k, \; \sum_{k = 1}^n \mu (R_k) < \epsilon\]
-  (Informell: Wir können die ganze Menge mit einer endlichen Menge an Rechtecken beliebiger Grösse überdecken.)
-\end{mainbox}
+\begin{mainbox}{Fubini's Theorem}
+    Let $f: \X \subset \R^n \to \R$ and $n = n_1 + n_2$, $n_1, n_2 \geq 1$
+    
+    For $x \in \R^n$ write $x = (x_1,x_2)$ with $x_1 \in \R^{n_1}, x_2 \in \R^{n_2}$.
 
-\subsubsection*{Weitere Integrationskriterien}
+    We define 
+    \begin{align*}
+        \X_{x_1} &:= \{x_2 \in \R^{n_2} \mid (x_1,x_2) \in \X\} &\subset \R^{n_2}\\
+        \X_1 &:= \{x_1 \in \R^{n_1} \mid \X_{x_1} \neq \emptyset\} &\subset \R^{n_1}
+    \end{align*}
+
+    If $g(x_1) := \int_{\X_{x_1}}f((x_1,x_2))\mathop{dx_2}$ is continous on $\X_1$ then 
+    \[\int_{\X}f(x)\mathop{dx} = \int_{\X_1}g(x_1)\mathop{dx_1} = \int_{\X_1}\left(\int_{\X_{x_1}}f((x_1,x_2))\mathop{dx_2}\right)\mathop{dx_1}\]
+\end{mainbox}
+More concretely for a cuboid $Q = [a_1,b_1]\times ... \times [a_n, b_n]$ and \\$f: Q \to \R$ integrable we have:
+\[\int_{Q}f\mathop{dx} = \left(\int_{a_1}^{b_1}\left(\int_{a_2}^{b_2} ...\left(\int_{a_n}^{b_n}f(x)\mathop{dx_n}\right) ... \right)\mathop{dx_1}\right)\]
+For a general set 
+
+$A := \{(x,y)\in \R^2 \mid a \leq x \leq b, \ g(x) \leq y \leq h(x)\} \subset \R^2$:
+\[\int_A f \mathop{dx}\mathop{dy} = \int_{a}^{b} \left(\int_{g(x)}^{h(x)}f(x,y) \mathop{dy}\right)\mathop{dx}\]
+
+\subsubsection*{Remark}
+Note that $g(x_1)$ might not be continous on $\X_1$. 
+
+E.g. $\X = [0, 1] \times [0, 2] \cup [1, 2] \times [0, 1]$ and $f = 1$.
+
+\(\int_{\X}1\mathop{dx}\mathop{dy}\) exists. 
+
+We then have $\X_1 = [0,2]$ and $ \X_{x} = 
+\begin{cases}
+   [0,2] \quad& x \leq 1\\
+   [0,1] \quad& 1 \leq x \leq 2
+\end{cases}
+$
+\[
+     g(x)= \int_{\X_x}1 \mathop{dy} = 
+    \begin{cases}
+        2 \quad& x \leq 1\\
+        1 \quad& 1 \leq x \leq 2
+    \end{cases}
+\]
+is not continous.
+
+We can still solve this problem by seperating $\X$ into $A = [0, 1] \times [0,2]$ and $B = [1,2] \times [0,1]$. Note that $A \cap B \neq \emptyset$, i.e. there's a segment we integrate twice. But this is negligible in a similar fashion to the 1D case when we split an integral.
+
+\subsubsection{Negligible Sets}
 \begin{enumerate}
-  \item Sei \(R\) ein kompaktes Rechteck und \(f: R \mapsto \R\) ist stetig. Dann ist \(f\) integrierbar auf \(R\).
-  \item Sei \(f: R \mapsto \R\) beschränkt und \(X\) die Menge aller nicht stetigen Punkte von \(f\). Wenn \(X\) eine Nullmenge ist, dann ist \(f\) auf \(R\) integrierbar.
-  \item Sei \(\varphi_1, \varphi_2: \left[a,b\right]\mapsto \R\) stetig mit \(\forall x \in \left[a,b\right]: \varphi_1(x) \le \varphi_2(x)\) und \(A = \{(x,y)\mid a\le x \le b, \varphi_1(x) \le y \le \varphi_2(x)\}\). Falls \(f: A \mapsto \R\) stetig ist, so ist \(f\) auf \(A\) integrierbar und es folgt dass
-  \[\int_A f(x,y) \mathop{d(x,y)} = \int_a^b \left(\int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \mathop{dy}\right) \mathop{dx}\]
+    \item Let $1 \leq m \leq n$ be an integer. A \textbf{parameterized $m$-set} in $\R^n$ is a continuous map $f: [a_1,b_1] \times ... \times [a_m,b_m] \to \R^n$ which is in $C^1$ on $]a_1,b_1[ \times ... \times ]a_m, b_m[.$
+    \item A subset $Y \subset \R^n$ is \textbf{negligible} if there $\exists k >= 1$ with parameterized $m_i$-sets $f_i: X_i \to \R^n$, with $1 \leq i \leq k$ and $m_i < n$, such that \[Y \subset \bigcup_{i = 1}^{k}f(X_i)\] 
+    \item (Integral on negligible sets) For $X \subset \R^n$ compact. $X$ negligible. For any continous function on $X$ we have $\int_{X}f(x)\mathop{dx} = 0$.
+    \item (Domain additivity) If $X = A_1 \cup A_2$, $A_1, A_2$ compact then for $f: X \to \R$: 
+    \[\int_X f\mathop{dx} = \int_{A_1}f\mathop{dx} + \int_{A_2}f\mathop{dx} -\int_{A_1 \cap A_2}f\mathop{dx}\]
+    Of course of $A_1 \cap A_2$ is negligible we can disregard that integral.
 \end{enumerate}
 
-\begin{subbox}{Lipschitz-Kurve}
-  Eine Kurve \(\varphi : \left[0, 1\right] \mapsto \R^2\) ist Lipschitz, falls
-  \[||\varphi(s) - \varphi(t)|| \le M \cdot |s-t| \ \forall s,t \in \left[0,1\right]\]
-  Es folgt ausserdem, dass \(\varphi(\left[0,1\right]) \subset \R^2\) eine Nullmenge ist.
-\end{subbox}
 
-\subsection{Variablenwechsel}
+
+
+\subsection{Change of Variables}
 Sei \(\partial A\) der Rand einer Menge \(A\):
 \begin{align*}
     \partial A = \Big\{ &(x,y) \in \R^2 \mid \forall \delta > 0, \\ &R = (x - \delta, x + \delta) \times (y - \delta, y + \delta), \\
@@ -773,28 +825,28 @@ Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit
  \item Alternativ kann auch das unbestimmte Integral berechnet werden und dann $u$ wieder durch $x$ substituiert werden.
 \end{itemize}
 
-\begin{mainbox}{Partialbruchzerlegung}
- Seien $p(x), q(x)$ zwei Polynome. $\int \frac{p(x)}{q(x)}$ wird wie folgend berechnet:
+\begin{mainbox}{Partial fraction decomposition}
+ Let $p(x), q(x)$ be 2 Polynomials. $\int \frac{p(x)}{q(x)}$ can be computed as follows:
  \begin{enumerate}
-  \item Falls $\deg(p) \ge \deg(q)$, führe eine Polynomdivision durch. Dies führt zum Integral $\int a(x) + \frac{r(x)}{q(x)}$.
-  \item Berechne die Nullstellen von $q(x)$.
-  \item Pro Nullstelle: Einen Partialbruch erstellen.
+  \item If $\deg(p) \ge \deg(q)$, we do a Polynomdivision. This leads to the Integral $\int a(x) + \frac{r(x)}{q(x)}$.
+  \item Find the roots of $q(x)$.
+  \item Per root: Create one partial fraction.
   \begin{itemize}[left=0pt]
-   \item Einfach, reell: $x_1 \to \frac{A}{x - x_1}$
-   \item $n$-fach, reell: $x_1 \to \frac{A_1}{x - x_1} + \ldots + \frac{A_r}{(x-x_1)^r}$ 
-   \item Einfach, komplex: $x^2 + px + q \to \frac{Ax + B} {x^2 + px + q}$
-   \item $n$-fach, komplex: $x^2 + px + q \to \frac{A_1x+b_1}{x^2+px+q} + \ldots$
+   \item non-repeating, real: $x_1 \to \frac{A}{x - x_1}$
+   \item multiplicity $n$, real: $x_1 \to \frac{A_1}{x - x_1} + \ldots + \frac{A_r}{(x-x_1)^r}$ 
+   \item non-repeating, complex: $x^2 + px + q \to \frac{Ax + B} {x^2 + px + q}$
+   \item multiplicity $n$, complex: $x^2 + px + q \to \frac{A_1x+b_1}{x^2+px+q} + \ldots$
   \end{itemize}
-  \item Parameter $A_1, \ldots, A_n$ (bzw. $B_1, \ldots, B_n$) bestimmen. ($x$ jeweils gleich Nullstelle setzen, umformen und lösen).
+  \item Determine the parameters $A_1, \ldots, A_n$ (rsp. $B_1, \ldots, B_n$). (Multiply both sides of the equation with $q(x)$ and then solve for the coefficients. Due to the powers of $x$, you will have $n$ equations for $n$ unkown parameters).
 
  \end{enumerate}
 \end{mainbox}
 
-\section{Trigonometrie}
+\section{Trigonometric formulas}
 
-\subsection{Regeln}
+\subsection{Rules}
 
-\subsubsection{Doppelwinkel}
+\subsubsection{Doubled angles}
 \begin{itemize}
  \item $\sin(2\alpha) = 2 \sin(\alpha) \cos(\alpha)$
  \item $\cos(2\alpha) = \cos^2(\alpha) - \sin^2(\alpha) = 1 - 2 \sin^2(\alpha)$
@@ -808,28 +860,28 @@ Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit
  \item $\tan(\alpha + \beta) = \frac{\tan(\alpha) + \tan(\beta)}{1 - \tan(\alpha) \tan(\beta)}$
 \end{itemize}
 
-\subsubsection{Subtraktion}
+\subsubsection{Subtraction}
 \begin{itemize}
  \item $\sin(\alpha - \beta) = \sin(\alpha) \cos(\beta) - \cos(\alpha)\sin(\beta)$
  \item $\cos(\alpha - \beta) = \cos(\alpha) \cos(\beta) + \sin(\alpha)\sin(\beta)$
  \item $\tan(\alpha - \beta) = \frac{\tan(\alpha) - \tan(\beta)}{1+\tan(\alpha) \tan(\beta)}$
 \end{itemize}
 
-\subsubsection{Multiplikation}
+\subsubsection{Multiplication}
 \begin{itemize}
  \item $\sin(\alpha) \sin(\beta) = -\frac{\cos(\alpha + \beta) - \cos(\alpha - \beta)}{2}$
  \item $\cos(\alpha) \cos(\beta) =  \frac{\cos(\alpha + \beta) + \cos(\alpha - \beta)}{2}$
  \item $\sin(\alpha) \cos(\beta) =  \frac{\sin(\alpha + \beta) + \sin(\alpha - \beta)}{2}$
 \end{itemize}
 
-\subsubsection{Potenzen}
+\subsubsection{Powers}
 \begin{itemize}
  \item $\sin^2(\alpha) = \frac{1}{2}(1-\cos(2\alpha))$
  \item $\cos^2(\alpha) = \frac{1}{2}(1+\cos(2\alpha))$
  \item $\tan^2(\alpha) = \frac{1-\cos(2\alpha)}{1+\cos(2\alpha)}$
 \end{itemize}
 
-\subsubsection{Diverse}
+\subsubsection{Divers}
 
 \begin{itemize}
  \item $\sin^2(\alpha) + \cos^2(\alpha) = 1$
@@ -841,26 +893,26 @@ Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit
 \begingroup
 \renewcommand*{\arraystretch}{2}
 
-\begin{mainbox}{Wichtige Werte}
-  \begin{center} 
-    \begin{tabular}{c|cccccc}
-      deg & 0° & 30° & 45° & 60° & 90° & 180° \\
-      \midrule
-      rad & 0 & $\frac{\pi}{6}$ & $\frac{\pi}{4}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$ & $\pi$ \\
-      cos & 1 & $\frac{\sqrt{3}}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{1}{2}$ & 0 & -1 \\
-      sin & 0 & $\frac{1}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{3}}{2}$ & 1 & 0 \\
-      tan & 0 & $\frac{1}{\sqrt{3}}$ & 1 & $\sqrt{3}$ & $+\infty$ & 0 \\
-    \end{tabular}
-  \end{center}
-\end{mainbox}
+% \begin{mainbox}{Angles}
+%   \begin{center} 
+%     \begin{tabular}{c|cccccc}
+%       deg & 0° & 30° & 45° & 60° & 90° & 180° \\
+%       \midrule
+%       rad & 0 & $\frac{\pi}{6}$ & $\frac{\pi}{4}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$ & $\pi$ \\
+%       cos & 1 & $\frac{\sqrt{3}}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{1}{2}$ & 0 & -1 \\
+%       sin & 0 & $\frac{1}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{3}}{2}$ & 1 & 0 \\
+%       tan & 0 & $\frac{1}{\sqrt{3}}$ & 1 & $\sqrt{3}$ & $+\infty$ & 0 \\
+%     \end{tabular}
+%   \end{center}
+% \end{mainbox}
 
 \begin{center}
   \includegraphics[width=\linewidth]{include_degrees_circle.pdf}
   
 \end{center}
 
-\section{Tabellen}
-\subsection{Ableitungen}
+\section{Tables}
+\subsection{Derivations}
 \begin{center}
   % the c>{\centering\arraybackslash}X is a workaround to have a column fill up all space and still be centered
   \begin{tabularx}{\linewidth}{c>{\centering\arraybackslash}Xc}
@@ -888,7 +940,7 @@ Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit
     \bottomrule
   \end{tabularx}
 \end{center}
-\subsection{Weitere Ableitungen}
+\subsection{Further derivations}
 \begin{center}
   \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
     \toprule
@@ -901,7 +953,7 @@ Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit
     \bottomrule
   \end{tabularx}
 \end{center}
-\subsection{Integrale}
+\subsection{Integrals}
 \begin{center}
   \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
     \toprule
@@ -924,6 +976,6 @@ Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit
 
 % end of larger array spacing
 \endgroup
-\section{Quellen}
-Ein Grossteil des Cheatsheets wurde stark vom Cheatsheet von \href{https://github.com/dannycamenisch}{Danny Camenisch} inspiriert. Ausserdem stammen Teile der Tabellen aus dem Buch ``Formeln, Tabellen und Konzepte''. Die Definitionen sind meistens dem Skript ``Analysis 1'' von Marc Burger und dem Skript ``Analysis 2'' von E. Kowalski entnommen.
+\section{Sources}
+This cheatsheet was inspired by previous summaries from Julian (xyquadrat) and Nicolas(Franco). Apart from that the definitions were taken from the ``Analysis 2'' script by E. Kowalski and the Lecture Notes from Ö. Imamoglu in the HS2022 edition of the course.
 \end{document}
