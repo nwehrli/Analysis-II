@@ -768,62 +768,57 @@ We can still solve this problem by seperating $\X$ into $A = [0, 1] \times [0,2]
 
 
 \subsection{Change of Variables}
-Sei \(\partial A\) der Rand einer Menge \(A\):
-\begin{align*}
-    \partial A = \Big\{ &(x,y) \in \R^2 \mid \forall \delta > 0, \\ &R = (x - \delta, x + \delta) \times (y - \delta, y + \delta), \\
-    &A \cap R \neq \emptyset \text{ und } \R^2 \backslash A \cap R \neq \emptyset \Big\}
-\end{align*}
+Let $\X, Y$ compact, $f: Y \subset \R^n \to \R$ be continous. 
+\\Suppose we have $\gamma: \X \to Y$ where $\X = \X_0 \cup B, Y = Y_0 \cup C$ ($B,C$ boundary of $\X,Y$ resp.).
+\\Suppose $\gamma: \X_0 \to Y_0$ is $C^1$ bijective and det$(J_\gamma(x)) \neq 0, \forall x \in \X_0$.
+Then we have the following:
+\[\int_Yf(y)\mathop{dy} = \int_{\X}f(\gamma(x))|\text{det}J_{\gamma}(x)|\mathop{dx}\]
 
-Sei \(\varphi : B \mapsto A\) eine stetige Abbildung, wobei \(A= A_0 \cup \partial A, \) \(B = B_0 \cup \partial B\) kompakte Mengen mit \(A_0, B_0\) offen und \(\partial A, \partial B\) Nullmengen sind. Wenn \(\varphi : B \setminus \N \mapsto A\) injektiv ist und \(N \subset B\) die Nullmenge ist, dann folgt
-\[\int_A f(x,y) \mathop{d(x,y)} = \int_B f(\varphi(u,v)) \cdot \left|\det J_\varphi (u,v)\right| \mathop{d(u,v)}\]
 \begin{enumerate}
-  \item Polarkoordinaten: \(\mathop{dx}\mathop{dy} = r \mathop{dr} \mathop{d\theta}\)
-  \item Zylindrische Koordinaten: \(\mathop{dx} \mathop{dy} \mathop{dz} = r \mathop{dr} \mathop{d\theta} \mathop{dz}\)
-  \item Kugelkoordinaten: \(\mathop{dx}\mathop{dy}\mathop{dz} = r^2 \sin(\varphi) \mathop{dr} \mathop{d\theta} \mathop{d\varphi}\)
+  \item Polar coordinates: \[\gamma(r, \theta) = (r \cos(\theta), r \sin(\theta))\] with \(\mathop{dx}\mathop{dy} = r \mathop{dr} \mathop{d\theta}\)
+  \item Cylindrical coordinates: \[\gamma(r, \theta, z) = (r \cos(\theta), r \sin(\theta), z)\] with \(\mathop{dx} \mathop{dy} \mathop{dz} = r \mathop{dr} \mathop{d\theta} \mathop{dz}\)
+  \item Spherical coordinates: \[\gamma(r, \theta, \varphi) = (r\sin(\varphi)\cos(\theta), r \sin(\varphi)\sin(\theta), r \cos(\varphi))\] with \(\mathop{dx}\mathop{dy}\mathop{dz} = r^2 \sin(\varphi) \mathop{dr} \mathop{d\theta} \mathop{d\varphi}\)
 \end{enumerate}
 
-\textbf{Achtung: Multiplikation mit der Determinante von Jacobi-Matrix nicht vergessen!}
+\textbf{Don't forget the determinant of the Jacobi-Matrix!}
 
-\subsubsection*{Beispiel mit Kettenregel}
-Sei \(f: \R^3 \mapsto \R\) eine glatte Funktion mit \(\nabla f \left(-\frac{\sqrt{3}}{2}, \frac{3}{2},7\right) = (6,2,0)\). Wenn wir nun \(\frac{\partial f}{\partial r}\left(\sqrt{3}, \frac{2}{3}\pi, 7\right)\) mit zylindrischen Koordinaten berechnen wollen, dann ist
-\[\frac{\partial f(g(r,\theta,z))}{\partial r} = \frac{\partial f}{\partial x} \frac{\partial g_1}{\partial r} + \frac{\partial f}{\partial y} \frac{\partial g_2}{\partial r} + \frac{\partial f}{\partial z} \frac{\partial g_3}{\partial r}\]
-Nun können wir die obige Information brauchen, um für \(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\) einzusetzen.
+\subsection{Green's theorem}
+Green's theorem only concerns itself with functions from a $2$-dimensional to a $2$-dimensional space. 
 
-\subsection{Satz von Green}
-Der Satz von Green stellt eine Beziehung zwischen Linienintegralen und Doppelintegralen über einen von einer parametrisierten Kurve umschlossenen Bereich her. 
-
-Eine parametrisierte Jordan-Kurve ist eine geschlossene parametrisierte Kurve \(\gamma : \left[a,b\right] \mapsto \R\), wobei \(\gamma : \left] a,b \right] \mapsto \R\) injektiv ist. Eine Jordan-Kurve in \(\R^2\) ist das Bild einer parametrisierten Jordan-Kurve.
-
-Seien \(b_1, b_2\) die Basisvektoren von \(\R^2\). Dann ist die Orientierung genau dann positiv, wenn die Matrix \(\left[b_1, b_2\right]\) eine positive Determinante hat.
-
-Ein reguläres Gebiet ist eine offene, beschränkte Teilmenge \(A\subset \R^2\), deren Rand \(\partial A\) endliche Vereinungen von disjunkten Jordan-Kurven ist.
-
-Eine parametrisierte Jordan-Kurve \(\gamma\), die eine Randkomponente von \(A\) bildet, hat einen positiven Umlaufsinn, falls \((n(t), \gamma'(t))\) eine positiv orientierte Basis von \(\R^2\) bildet. Dabei ist \(n(t)\) der Einheitsvektor, welcher orthogonal zu \(\gamma'(t)\) steht und von \(A\) weg zeigt. (Intuitiv: wenn die umschlossene Menge immer ``links'' liegt.)
-
-\begin{mainbox}{Satz von Green}
-  Sei \(A \subset \R^2\) ein reguläres Gebiet und \(F: U \mapsto \R^2\) ein Vektorfeld der Klasse \(C^1\), wobei \((A \cup \partial A) \subset U \subset \R^2\). Dann gilt
-  \[\int_{\partial a} F(x) \mathop{ds} = \int \int_A \left(\partial_x f_2 - \partial_y f_1\right) \mathop{dx} \mathop{dy}\]
+\begin{mainbox}{Green's theorem}
+  Let $\X \subset \R^2$ be compact with a boundary $\partial \X = \bigcup_{i = 1}^{n}\gamma_i$ that is the union of finitely many simple closed parameterized curves. Assume that 
+  \[\gamma_i: [a_i,b_i] \to \R^2\]
+  has the property that $\X$ lies always ``to the left'' of the tangent vector $\gamma_i'(t)$ based at $\gamma_i(t)$. 
+  \\Let $f: U \subset \R^2 \to \R^2$ with $f = (f_1, f_2)$ in $C^1$ and $\X \subset U$. Then we have
+  \[\int_{\partial\X}f(x)\mathop{ds} = \int \int_{\X} \pdv{f_2}{x}-\pdv{f_1}{y} \mathop{dx}\mathop{dy}\]
 \end{mainbox}
-Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit \(\text{curl}(f) = 1\), beispielsweise \[f = (0,x) \text{ oder } f(-y, 0)\]
+Note that from $f$ in $C^1$ it follows, that curl$(f) = \pdv{f_2}{x}-\pdv{f_1}{y}$ is integrable.
 
-\section{Themen aus Analysis I}
-\begin{mainbox}{Partielle Integration}
- \vspace{-12pt}
+For any curve $\gamma: [a,b] \to \R^2$ 
+\begin{itemize}
+  \item \textbf{simple} means that there exists no $s, t \in ]a,b[, s \neq t$ such that $\gamma(s) = \gamma(t)$. 
+  \item \textbf{closed} means: $\gamma(a) = \gamma(b)$.
+\end{itemize}
+\textbf{To calculate the surface of $\X$ with Green's Theorem we use a vector field $f$ with curl$(f) = 1$. For instance: \[f = (0,x) \text{ or } f = (-y, 0)\]}
+
+\section{Topics from Analysis I}
+\begin{mainbox}{Partial Integration}
  $$\int f'(x) g(x) \dx = f(x)g(x) - \int f(x) g'(x) \dx$$
 \end{mainbox}
 \begin{itemize}
- \item Grundsätzlich gilt: Polynome ableiten ($g(x)$), wo das Integral periodisch ist ($\sin, \cos, e^x$,...) integrieren ($f'(x)$)
- \item Teils ist es nötig, mit $1$ zu multiplizieren, um partielle Integration anwenden zu können (z.B. im Fall von $\int \log(x) \dx$)
- \item Muss eventuell mehrmals angewendet werden
+ \item In general: Choose to derive Polynomials (as $g(x)$), for periodic functions ($\sin, \cos, e^x$,...) choose to integrate (as $f'(x)$)
+ \item It can be necessary to multiply with $1$, to be able to use partial Integration (e.g. for $\int \log(x) \dx$) 
+ \item There exist combinations, where partial integration will always circle back to the original function (e.g. $\int e^x \cos(x)\mathop{dx}$). In such cases treat the integral as an unknown and solve for it (indirect computation of the integral).
 \end{itemize}
 \begin{mainbox}{Substitution}
- Um $\int_a^b f(g(x)) \dx$ zu berechnen: Ersetze $g(x)$ durch $u$ und integriere $\int_{g(a)}^{g(b)} f(u) \frac{\text{d}u}{g'(x)}$.
+ To calculate $\int_a^b f(g(x)) \dx$: Replace $g(x)$ by $u$ and integrate $\int_{g(a)}^{g(b)} f(u) \frac{\mathop{du}}{g'(x)}$.
 \end{mainbox}
-\begin{itemize}
- \item $g'(x)$ muss sich irgendwie herauskürzen, sonst nutzlos.
- \item Grenzen substituieren nicht vergessen.
- \item Alternativ kann auch das unbestimmte Integral berechnet werden und dann $u$ wieder durch $x$ substituiert werden.
-\end{itemize}
+% \begin{itemize}
+%  \item $g'(x)$ has to be elimnated otherwise useless.
+%  \item Don't forget to change the boundaries of the integral.
+%  \item Alternatively one could compute the improper integral and then resubstitute $u$ by $g(x)$.
+%  \item One can also use the theorem in the other direction. In essence $\int_a^b f(u) \mathop{du} = \int_{g^{-1}(a)}^{g^{-1}(b)}f(g(x))g'(x)\mathop{dx}$.
+% \end{itemize}
 
 \begin{mainbox}{Partial fraction decomposition}
  Let $p(x), q(x)$ be 2 Polynomials. $\int \frac{p(x)}{q(x)}$ can be computed as follows:
@@ -837,7 +832,8 @@ Um Flächen mit dem Satz von Green zu berechnen, benutzen wir ein Vektorfeld mit
    \item non-repeating, complex: $x^2 + px + q \to \frac{Ax + B} {x^2 + px + q}$
    \item multiplicity $n$, complex: $x^2 + px + q \to \frac{A_1x+b_1}{x^2+px+q} + \ldots$
   \end{itemize}
-  \item Determine the parameters $A_1, \ldots, A_n$ (rsp. $B_1, \ldots, B_n$). (Multiply both sides of the equation with $q(x)$ and then solve for the coefficients. Due to the powers of $x$, you will have $n$ equations for $n$ unkown parameters).
+  \item Determine the parameters $A_1, \ldots, A_n$ (rsp. $B_1, \ldots, B_n$). 
+  (Multiply both sides of the equation with $q(x)$ and then solve for the coefficients. Due to the powers of $x$, you will have $n$ equations for $n$ unkown parameters).
 
  \end{enumerate}
 \end{mainbox}
