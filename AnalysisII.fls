@@ -1,6 +1,6 @@
-PWD c:\Users\nshar\OneDrive\Dokumente\ETH\Semester 3\Analysis 2\Cheatsheet
+PWD c:\Users\nshar\OneDrive\Dokumente\GitHub\Analysis-II
 INPUT C:\Users\nshar\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\nshar\OneDrive\Dokumente\ETH\Semester 3\Analysis 2\Cheatsheet\AnalysisII.tex
+INPUT c:\Users\nshar\OneDrive\Dokumente\GitHub\Analysis-II\AnalysisII.tex
 OUTPUT AnalysisII.log
 INPUT C:\Users\nshar\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrartcl.cls
 INPUT C:\Users\nshar\AppData\Local\Programs\MiKTeX\tex\latex\koma-script\scrartcl.cls

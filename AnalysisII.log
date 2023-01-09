@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.29)  9 JAN 2023 00:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.29)  9 JAN 2023 10:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/nshar/OneDrive/Dokumente/ETH/Semester 3/Analysis 2/Cheatsheet/AnalysisII.tex"
-(c:/Users/nshar/OneDrive/Dokumente/ETH/Semester 3/Analysis 2/Cheatsheet/AnalysisII.tex
+**c:/Users/nshar/OneDrive/Dokumente/GitHub/Analysis-II/AnalysisII.tex
+(c:/Users/nshar/OneDrive/Dokumente/GitHub/Analysis-II/AnalysisII.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-05-04> (C:\Users\nshar\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrartcl.cls
 Document Class: scrartcl 2022/05/01 v3.36 KOMA-Script document class (article)
@@ -990,14 +990,14 @@ Package rerunfilecheck Info: File `AnalysisII.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  34242 strings out of 478614
- 717040 string characters out of 2843122
- 1214907 words of memory out of 3000000
+ 716872 string characters out of 2843122
+ 1214909 words of memory out of 3000000
  51732 multiletter control sequences out of 15000+600000
  480304 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,15n,106p,10710b,556s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 108i,15n,106p,10690b,556s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\nshar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on AnalysisII.pdf (8 pages, 366692 bytes).
+Output written on AnalysisII.pdf (8 pages, 366687 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  126 named destinations out of 1000 (max. 500000)

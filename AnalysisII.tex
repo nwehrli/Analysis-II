@@ -207,7 +207,7 @@ We search for a homogeneous solution of the form \(e^{\lambda x}\). Now we can s
     \item We realize that \(f_1 = e^{\lambda x} = e^{\beta x} (\cos(\gamma x)+ i \sin(\gamma x))\) and \(f_2 = e^{\bar{\lambda} x}= e^{\beta x} (\cos(\gamma x) - i \sin(\gamma x))\).
     \item We can thus replace $f_1$ and $f_2$ by \(\tilde{f_1} = e^{\beta x} \cos(\gamma x)\) and \(\tilde{f_2} = e^{\beta x} \sin(\gamma x)\). (Note that $f_1 = \tilde{f_1} + i \tilde{f_2}$ and $f_2 = \tilde{f_1} - i \tilde{f_2}$)
     \item Note that we are often only interested in finding real-valued solutions if the coefficients are all real valued.
-    \item If \(y^{(k)} + a_{k-1}y^{(k-1)} + \dots + a_0 y = 0\) only has real coefficients, every pair of complex conjugated roots $\beta_j \pm \gamma_j i$ with multiplicity $m_j$ leads to a solution \[x^l e^{\beta_j x} \Big( \cos(\gamma_j x) + i \sin(\gamma_j x) \Big) \quad \text{for }0 \leq l < m_j\]
+    \item If \(y^{(k)} + a_{k-1}y^{(k-1)} + \dots + a_0 y = 0\) only has real coefficients, every pair of complex conjugated roots $\beta_j \pm \gamma_j i$ with multiplicity $m_j$ leads to a solution with \[x^l e^{\beta_j x} \Big( \cos(\gamma_j x) \pm i \sin(\gamma_j x) \Big) \quad \text{for }0 \leq l < m_j\]
     of which then the real part can be extracted.
 \end{itemize}
 To find a particular solution $f_p$ we can as in the general case use \textbf{Varation of parameters} or \textbf{Educated guess}. We will now show an simple example with $2$ basis functions:
