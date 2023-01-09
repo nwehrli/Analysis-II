@@ -155,13 +155,13 @@ We assume that the particular solution is of the form \(f_p = K(x)e^{-A(x)}\) fo
     \end{align*}
     and thus \[K(x) = \int_{x_0}^x b(t) e^{A(t)} \mathop{dt}\] Therefore we get \[f_p = \left(\int_{x_0}^x b(t) e^{A(t)} \mathop{dt}\right) \cdot e^{-A(t)}\]
     The method with the ``Integration factor'' gives the same particular solution!
-\subsection{Educated Guess for general case}
-\begin{enumerate}[label = (\arabic*)]
-    \item If $b(x) = x^de^{\beta x}$ and $\beta$ \textbf{is not a root of the companion Polynomial $P$}, then we try $f_p(x) = Q(x)e^{\beta x}$, where $Q$ is a Polynomial of degree $d$.
-    \item If $b(x) = x^d\cos(\beta x)$ or $b(x) = x^d\sin(\beta x)$ and $\beta$ \textbf{is not a root of the companion Polynomial $P$}, we try \[f_p(x) = Q_1(x)\cos(\beta x) + Q_2(x)\sin(\beta x)\] where $Q_1, Q_2$ are polynomials of degree $d$.
-    \item If $b$ is of the form of the previous two examples but $\beta$ \textbf{is a root with multiplicity $j$ of the companion polynomial}, then one tries the same functions, except that the Polynomials $Q$ (or $Q_1, Q_2$ resp.) have degree $d+j$.
-    \item The special case $\beta = 0$ in cases $(1), (2), (3)$ corresponds to the situation where $b$ is a polynomial of degree $d$. Therefore we try $f_p$ as a polynomial of degree $d$, unless $0$ is a root with multiplicity $j$, then we try $f_p$ as a polynomial of degree $d+j$.
-\end{enumerate}
+% \subsection{Educated Guess for general case}
+% \begin{enumerate}[label = (\arabic*)]
+%     \item If $b(x) = x^de^{\beta x}$ and $\beta$ \textbf{is not a root of the companion Polynomial $P$}, then we try $f_p(x) = Q(x)e^{\beta x}$, where $Q$ is a Polynomial of degree $d$.
+%     \item If $b(x) = x^d\cos(\beta x)$ or $b(x) = x^d\sin(\beta x)$ and $\beta$ \textbf{is not a root of the companion Polynomial $P$}, we try \[f_p(x) = Q_1(x)\cos(\beta x) + Q_2(x)\sin(\beta x)\] where $Q_1, Q_2$ are polynomials of degree $d$.
+%     \item If $b$ is of the form of the previous two examples but $\beta$ \textbf{is a root with multiplicity $j$ of the companion polynomial}, then one tries the same functions, except that the Polynomials $Q$ (or $Q_1, Q_2$ resp.) have degree $d+j$.
+%     \item The special case $\beta = 0$ in cases $(1), (2), (3)$ corresponds to the situation where $b$ is a polynomial of degree $d$. Therefore we try $f_p$ as a polynomial of degree $d$, unless $0$ is a root with multiplicity $j$, then we try $f_p$ as a polynomial of degree $d+j$.
+% \end{enumerate}
 
 
 \subsection{Educated Guess for constant coefficients}
@@ -190,7 +190,7 @@ If $b(x)$ is of a specific form, we try following $f_p$, where we insert the $f_
 
 \begin{enumerate}
   \item If \(b(x)\) is a linear combination of any of the base functions, try that linear combination of 'Ansatz' functions.  
-  \item If $b(x) = c \cdot e^{\alpha x}, \alpha \in \C$ for which $\alpha$ is a zero of the characteristic polynomial (i.e. $\alpha$ is a root and $b(x)$ a solution for the homogeneous equation), then we try $f_p = d \cdot x^m \cdot e^{\alpha x}$, where $m$ is the multiplicity of the root $\alpha$.
+  \item If $\alpha/\beta$ from any of the 'Ansatz' functions is a root of the companion Polynomial of the ODE with multiplicity $j$, then we try the same 'Ansatz' as shown in the table but multiply it with a Polynomial of degree $j$.
 \end{enumerate}
 
 \subsection{Linear ODE's with constant coefficients}
@@ -425,7 +425,7 @@ For a function $f: \R^n \to \R^t$ we denote higher order partial derivatives wit
     \[\frac{\partial^{|m|}f_j}{\partial x_1^{m_1} \partial x_2^{m_2} \cdot ... \cdot \partial x_n^{m_n}} = \partial_{x^m}^{|m|}f_j, \ 1 \leq j \leq t\]
 
 
-\begin{mainbox}{Differential Classes}
+\subsubsection*{Differential Classes}
     Let \(\X \subset \R^n\) be open, $f : \X \to \R^m$. 
     \begin{itemize}
         \item We say that $f$ is differentiable of class $C^1$ if $f$ is differentiable on $\X$ and all its partial derivatives are continous. The set of all $C^1$ functions from $\X$ to $\R^m$ are denoted by $C^1(\X:\R^m)$.
@@ -435,7 +435,6 @@ For a function $f: \R^n \to \R^t$ we denote higher order partial derivatives wit
         \item If $f \in C^k, k \geq 2$ then all partial derivatives of order $\leq k$ are commutative.
         $$\pdv{f}{x_i, x_j} = \pdv{f}{ x_j, x_i}$$
     \end{itemize}
-\end{mainbox}
 
 \begin{mainbox}{Hessian}
     Let $\X \subset \R^n$ be open and $f: \X \to \R$ a $C^2$ function.
@@ -813,12 +812,12 @@ For any curve $\gamma: [a,b] \to \R^2$
 \begin{mainbox}{Substitution}
  To calculate $\int_a^b f(g(x)) \dx$: Replace $g(x)$ by $u$ and integrate $\int_{g(a)}^{g(b)} f(u) \frac{\mathop{du}}{g'(x)}$.
 \end{mainbox}
-% \begin{itemize}
-%  \item $g'(x)$ has to be elimnated otherwise useless.
-%  \item Don't forget to change the boundaries of the integral.
-%  \item Alternatively one could compute the improper integral and then resubstitute $u$ by $g(x)$.
-%  \item One can also use the theorem in the other direction. In essence $\int_a^b f(u) \mathop{du} = \int_{g^{-1}(a)}^{g^{-1}(b)}f(g(x))g'(x)\mathop{dx}$.
-% \end{itemize}
+\begin{itemize}
+ \item $g'(x)$ has to be elimnated otherwise useless.
+ \item Don't forget to change the boundaries of the integral.
+ \item Alternatively one could compute the improper integral and then resubstitute $u$ by $g(x)$.
+ \item One can also use the theorem in the other direction. In essence $\int_a^b f(u) \mathop{du} = \int_{g^{-1}(a)}^{g^{-1}(b)}f(g(x))g'(x)\mathop{dx}$.
+\end{itemize}
 
 \begin{mainbox}{Partial fraction decomposition}
  Let $p(x), q(x)$ be 2 Polynomials. $\int \frac{p(x)}{q(x)}$ can be computed as follows:
@@ -973,5 +972,7 @@ For any curve $\gamma: [a,b] \to \R^2$
 % end of larger array spacing
 \endgroup
 \section{Sources}
-This cheatsheet was inspired by previous summaries from Julian (xyquadrat) and Nicolas(Franco). Apart from that the definitions were taken from the ``Analysis 2'' script by E. Kowalski and the Lecture Notes from Ö. Imamoglu in the HS2022 edition of the course.
+This cheatsheet was inspired by previous summaries from Julian (xyquadrat) and Nicolas(Franco). 
+
+Apart from that the definitions were taken from the ``Analysis 2'' script by E. Kowalski and the Lecture Notes from Ö. Imamoglu in the HS2022 edition of the course.
 \end{document}
