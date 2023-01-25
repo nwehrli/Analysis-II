@@ -2,11 +2,12 @@
 \usepackage[nswissgerman]{babel}
 
 % 3 column landscape layout with fewer margins
-\usepackage[landscape, left=0.75cm, top=1cm, right=0.75cm, bottom=1.5cm, footskip=15pt]{geometry}
+\usepackage[landscape, left=0.75cm, top=1cm, right=0.75cm, bottom=1.5cm, footskip=5pt]{geometry}
 \usepackage{flowfram}
 \ffvadjustfalse
 \setlength{\columnsep}{1cm}
 \Ncolumn{3}
+
 
 % define nice looking boxes
 \usepackage[many]{tcolorbox}
@@ -52,7 +53,7 @@
 \usepackage{enumitem}
 \setitemize{itemsep=0.5pt}
 \setenumerate{itemsep=0.75pt}
-\setlength{\parindent}{0pt}
+
 
 % To include sketches & PDFs
 \usepackage{graphicx}
@@ -86,6 +87,11 @@
 \begin{document}
 
 \maketitle
+
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\lineskip}{0pt}
+\setlength{\parindent}{0pt}
 
 \section{Differential equations}
 \begin{mainbox}{Ordinary Differential Equation (ODE)}
@@ -207,7 +213,7 @@ We search for a homogeneous solution of the form \(e^{\lambda x}\). Now we can s
     \item We realize that \(f_1 = e^{\lambda x} = e^{\beta x} (\cos(\gamma x)+ i \sin(\gamma x))\) and \(f_2 = e^{\bar{\lambda} x}= e^{\beta x} (\cos(\gamma x) - i \sin(\gamma x))\).
     \item We can thus replace $f_1$ and $f_2$ by \(\tilde{f_1} = e^{\beta x} \cos(\gamma x)\) and \(\tilde{f_2} = e^{\beta x} \sin(\gamma x)\). (Note that $f_1 = \tilde{f_1} + i \tilde{f_2}$ and $f_2 = \tilde{f_1} - i \tilde{f_2}$)
     \item Note that we are often only interested in finding real-valued solutions if the coefficients are all real valued.
-    \item If \(y^{(k)} + a_{k-1}y^{(k-1)} + \dots + a_0 y = 0\) only has real coefficients, every pair of complex conjugated roots $\beta_j \pm \gamma_j i$ with multiplicity $m_j$ leads to a solution with \[x^l e^{\beta_j x} \Big( \cos(\gamma_j x) \pm i \sin(\gamma_j x) \Big) \quad \text{for }0 \leq l < m_j\]
+    \item If \(y^{(k)} + a_{k-1}y^{(k-1)} + \dots + a_0 y = 0\) only has real coefficients, every pair of complex conjugated roots $\beta_j \pm \gamma_j i$ with multiplicity $m_j$ leads to a solution \[x^l e^{\beta_j x} \Big( \cos(\gamma_j x) \pm i \sin(\gamma_j x) \Big) \quad \text{for }0 \leq l < m_j\]
     of which then the real part can be extracted.
 \end{itemize}
 To find a particular solution $f_p$ we can as in the general case use \textbf{Varation of parameters} or \textbf{Educated guess}. We will now show an simple example with $2$ basis functions:
@@ -800,6 +806,13 @@ For any curve $\gamma: [a,b] \to \R^2$
 \end{itemize}
 \textbf{To calculate the surface of $\X$ with Green's Theorem we use a vector field $f$ with curl$(f) = 1$. For instance: \[f = (0,x) \text{ or } f = (-y, 0)\]}
 
+\subsubsection*{Parametrization of common planes}
+\begin{itemize}
+  \item General Ellipse Equation around $(x_0, y_0)$: $$\frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = 1$$ can be parameterized by $$f(t) = (x_0 + a \cdot \cos(2\pi t), y_0 + b \cdot \sin(2\pi t)), t \in [0, 2\pi]$$
+  \item Any curve given by an explicit equation $$y = f(x), f: [a,b] \to \R,$$ can be parameterized trivially by $(x, y) = (t, f(t))$ for some $t \in [a, b]$.
+\end{itemize}
+
+
 \section{Topics from Analysis I}
 \begin{mainbox}{Partial Integration}
  $$\int f'(x) g(x) \dx = f(x)g(x) - \int f(x) g'(x) \dx$$
@@ -905,6 +918,17 @@ For any curve $\gamma: [a,b] \to \R^2$
   \includegraphics[width=\linewidth]{include_degrees_circle.pdf}
   
 \end{center}
+
+\subsubsection*{Taylor expansions 1D at $0$:}
+\begin{itemize}
+ \item $\sin(x) = \sumn (-1)^n \cdot \frac{x^{2n+1}}{(2n+1)!}$
+ \item $\cos(x) = \sumn (-1)^n \cdot \frac{x^{2n}}{(2n)!}$
+ \item $e^x = \sumn \frac{x^n}{n!}$
+ \item $e^{-x} = \sumn (-1)^n \cdot \frac{x^n}{n!}$
+ \item $\sinh(x) = \sumn \frac{x^{2n+1}}{(2n+1)!}$
+ \item $\cosh(x) = \sumn \frac{x^{2n}}{(2n)!}$
+\end{itemize}
+
 
 \section{Tables}
 \subsection{Derivations}
