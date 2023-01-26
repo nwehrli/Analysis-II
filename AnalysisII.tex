@@ -1,4 +1,4 @@
-\documentclass[a4paper,fontsize = 8pt]{scrartcl}
+\documentclass[a4paper,fontsize = 10pt]{article}
 \usepackage[nswissgerman]{babel}
 
 % 3 column landscape layout with fewer margins
@@ -8,6 +8,14 @@
 \setlength{\columnsep}{1cm}
 \Ncolumn{3}
 
+%saving space around section headers and customising them
+\usepackage[compact]{titlesec}  
+\titlespacing{\section}{0pt}{2pt}{0pt}
+\titlespacing{\subsection}{0pt}{2pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{2pt}{0pt}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\small\bfseries}
 
 % define nice looking boxes
 \usepackage[many]{tcolorbox}
@@ -15,15 +23,16 @@
 % a base set, that is then customised
 \tcbset {
   base/.style={
-    boxrule=0mm,
+    boxrule=0.3mm,
+    boxsep = 1mm,
     leftrule=1mm,
-    left=1.75mm,
+    left=0.5mm,
     arc=0mm, 
     fonttitle=\bfseries, 
     colbacktitle=black!10!white, 
     coltitle=black, 
-    toptitle=0.75mm, 
-    bottomtitle=0.25mm,
+    toptitle=0.0mm, 
+    bottomtitle=0.0mm,
     title={#1}
   }
 }
@@ -92,6 +101,7 @@
 \setlength{\belowdisplayskip}{3pt}
 \setlength{\lineskip}{0pt}
 \setlength{\parindent}{0pt}
+\footnotesize
 
 \section{Differential equations}
 \begin{mainbox}{Ordinary Differential Equation (ODE)}
@@ -112,7 +122,7 @@ $f'(x+2) = f(x)$ is not an \textbf{ordinary} differential equation.
 
 \subsection*{Recognising a linear ODE}
 \begin{itemize}
-    \item no coefficients before the highest order derivative (\textbf{what about constants?})
+    \item no coefficients before the highest order derivative (\textbf{excluding constants})
     \item alle coefficients are continous functions
     \item no products of $y$ and it's derivatives
     \item $y$ and all of it's derivatives occur with the power one
@@ -710,7 +720,7 @@ Let $f, g: Q \subset \R^n \to \R$:
   \item If \(f(x) \ge 0\), then:
   \(\int_Q f(x) \mathop{dx} \geq 0\)
   \item Triangle inequality:
-    \[\left| \int_Q f(x) \mathop{dx}\right| \le \int_Q \left|f(x)\right| \mathop{dx} \leq (\text{sup}_{Q}f)(\text{vol}Q)\]
+    \[\left| \int_Q f(x) \mathop{dx}\right| \le \int_Q \left|f(x)\right| \mathop{dx} \leq |(\text{sup}_{Q}f)(\text{vol}Q)|\]
 \end{enumerate}
 
 
@@ -852,44 +862,42 @@ For any curve $\gamma: [a,b] \to \R^2$
 
 \section{Trigonometric formulas}
 
-\subsection{Rules}
-
-\subsubsection{Doubled angles}
+\subsubsection*{Doubled angles}
 \begin{itemize}
  \item $\sin(2\alpha) = 2 \sin(\alpha) \cos(\alpha)$
  \item $\cos(2\alpha) = \cos^2(\alpha) - \sin^2(\alpha) = 1 - 2 \sin^2(\alpha)$
  \item $\tan(2\alpha) = \frac{2\tan(\alpha)}{1 - \tan^2(\alpha)}$
 \end{itemize}
 
-\subsubsection{Addition}
+\subsubsection*{Addition}
 \begin{itemize}
  \item $\sin(\alpha + \beta) = \sin(\alpha) \cos(\beta) + \cos(\alpha) \sin(\beta)$
  \item $\cos(\alpha + \beta) = \cos(\alpha) \cos(\beta) - \sin(\alpha) \sin(\beta)$
  \item $\tan(\alpha + \beta) = \frac{\tan(\alpha) + \tan(\beta)}{1 - \tan(\alpha) \tan(\beta)}$
 \end{itemize}
 
-\subsubsection{Subtraction}
+\subsubsection*{Subtraction}
 \begin{itemize}
  \item $\sin(\alpha - \beta) = \sin(\alpha) \cos(\beta) - \cos(\alpha)\sin(\beta)$
  \item $\cos(\alpha - \beta) = \cos(\alpha) \cos(\beta) + \sin(\alpha)\sin(\beta)$
  \item $\tan(\alpha - \beta) = \frac{\tan(\alpha) - \tan(\beta)}{1+\tan(\alpha) \tan(\beta)}$
 \end{itemize}
 
-\subsubsection{Multiplication}
+\subsubsection*{Multiplication}
 \begin{itemize}
  \item $\sin(\alpha) \sin(\beta) = -\frac{\cos(\alpha + \beta) - \cos(\alpha - \beta)}{2}$
  \item $\cos(\alpha) \cos(\beta) =  \frac{\cos(\alpha + \beta) + \cos(\alpha - \beta)}{2}$
  \item $\sin(\alpha) \cos(\beta) =  \frac{\sin(\alpha + \beta) + \sin(\alpha - \beta)}{2}$
 \end{itemize}
 
-\subsubsection{Powers}
+\subsubsection*{Powers}
 \begin{itemize}
  \item $\sin^2(\alpha) = \frac{1}{2}(1-\cos(2\alpha))$
  \item $\cos^2(\alpha) = \frac{1}{2}(1+\cos(2\alpha))$
  \item $\tan^2(\alpha) = \frac{1-\cos(2\alpha)}{1+\cos(2\alpha)}$
 \end{itemize}
 
-\subsubsection{Divers}
+\subsubsection*{Divers}
 
 \begin{itemize}
  \item $\sin^2(\alpha) + \cos^2(\alpha) = 1$
@@ -931,7 +939,7 @@ For any curve $\gamma: [a,b] \to \R^2$
 
 
 \section{Tables}
-\subsection{Derivations}
+\subsection*{Derivations}
 \begin{center}
   % the c>{\centering\arraybackslash}X is a workaround to have a column fill up all space and still be centered
   \begin{tabularx}{\linewidth}{c>{\centering\arraybackslash}Xc}
@@ -959,7 +967,7 @@ For any curve $\gamma: [a,b] \to \R^2$
     \bottomrule
   \end{tabularx}
 \end{center}
-\subsection{Further derivations}
+\subsection*{Further derivations}
 \begin{center}
   \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
     \toprule
@@ -972,7 +980,7 @@ For any curve $\gamma: [a,b] \to \R^2$
     \bottomrule
   \end{tabularx}
 \end{center}
-\subsection{Integrals}
+\subsection*{Integrals}
 \begin{center}
   \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
     \toprule
