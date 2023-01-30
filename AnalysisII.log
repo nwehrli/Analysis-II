@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.29)  27 JAN 2023 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.29)  31 JAN 2023 00:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -851,54 +851,77 @@ Underfull \hbox (badness 3029) in paragraph at lines 290--292
  []
 
 [2] [3] [4]
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 696.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 701.
  (C:\Users\nshar\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-Overfull \hbox (9.36714pt too wide) detected at line 739
+) [5]
+Overfull \hbox (9.36714pt too wide) detected at line 744
 [][] \OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x\OT1/cmr/m/n/8 ) [] = [][] \OML/cmm/m/it/8 g\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x[]\OT1/cmr/m/n/8 ) [] = [][] [] []
  []
 
-[5]
-Overfull \hbox (14.86499pt too wide) in paragraph at lines 801--802
+
+Overfull \hbox (14.86499pt too wide) in paragraph at lines 806--807
 []\OT1/cmr/m/n/8 Green's theo-rem on-ly con-cerns itself with func-ti-ons from a $2$-dimensional
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 857--859
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 862--864
 []\OT1/cmr/m/n/8 Determine the pa-ra-me-ters $\OML/cmm/m/it/8 A[]; [] ; A[]$ \OT1/cmr/m/n/8 (rsp.
  []
 
 
-Underfull \hbox (badness 1975) in paragraph at lines 857--859
+Underfull \hbox (badness 1975) in paragraph at lines 862--864
 \OML/cmm/m/it/8 B[]; [] ; B[]$\OT1/cmr/m/n/8 ). (Mul-ti-ply both si-des of the equa-ti-
  []
 
-[6]
-<include_degrees_circle.pdf, id=237, 399.16716pt x 395.28479pt>
+<include_degrees_circle.pdf, id=249, 399.16716pt x 395.28479pt>
 File: include_degrees_circle.pdf Graphic file (type pdf)
 <use include_degrees_circle.pdf>
-Package pdftex.def Info: include_degrees_circle.pdf  used on input line 926.
+Package pdftex.def Info: include_degrees_circle.pdf  used on input line 934.
 (pdftex.def)             Requested size: 248.48741pt x 246.07527pt.
- [7 <./include_degrees_circle.pdf>] [8
+[7 <./include_degrees_circle.pdf>]
+Overfull \hbox (14.99307pt too wide) detected at line 1113
+[]
+ []
 
+
+Overfull \hbox (19.1812pt too wide) detected at line 1125
+\OML/cmm/m/it/8 g\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 t\OT1/cmr/m/n/8 ) = \OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 tx; ty; tz\OT1/cmr/m/n/8 ) \OMS/cmsy/m/n/8 ^^@ \OML/cmm/m/it/8 t[]f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x; y; z\OT1/cmr/m/n/8 ) = \OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 h\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 t\OT1/cmr/m/n/8 )) \OMS/cmsy/m/n/8 ^^@ \OML/cmm/m/it/8 t[]f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x; y; z\OT1/cmr/m/n/8 )\OML/cmm/m/it/8 ; h\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 t\OT1/cmr/m/n/8 ) = (\OML/cmm/m/it/8 tx; ty; tz\OT1/cmr/m/n/8 )\OML/cmm/m/it/8 :
+ []
+
+
+Overfull \hbox (10.44965pt too wide) in paragraph at lines 1127--1129
+\OML/cmm/m/it/8 g[]\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 t\OT1/cmr/m/n/8 ) = \OML/cmm/m/it/8 x\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 @[]f\OT1/cmr/m/n/8 )(\OML/cmm/m/it/8 tx; ty; tz\OT1/cmr/m/n/8 ) + \OML/cmm/m/it/8 y\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 @[]f\OT1/cmr/m/n/8 )(\OML/cmm/m/it/8 tx; ty; tz\OT1/cmr/m/n/8 ) + \OML/cmm/m/it/8 z\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 @[]f\OT1/cmr/m/n/8 )(\OML/cmm/m/it/8 tx; ty; tz\OT1/cmr/m/n/8 ) \OMS/cmsy/m/n/8 ^^@
+ []
+
+[8]
+Overfull \hbox (38.5411pt too wide) detected at line 1137
+[]
+ []
+
+
+Overfull \hbox (18.2059pt too wide) in paragraph at lines 1195--1196
+[]\OT1/cmr/m/n/8 Where does the tan-gent pla-ne at $(1\OML/cmm/m/it/8 ; \OT1/cmr/m/n/8 1\OML/cmm/m/it/8 ; \OT1/cmr/m/n/8 1)$ to the sur-face $\OML/cmm/m/it/8 S \OT1/cmr/m/n/8 = \OMS/cmsy/m/n/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x; y; e[]\OT1/cmr/m/n/8 ) :
+ []
+
+[9
 
 ] (AnalysisII.aux)
 Package rerunfilecheck Info: File `AnalysisII.out' has not changed.
-(rerunfilecheck)             Checksum: 5C1934602DD224309328A3EDA051EA10;4757.
+(rerunfilecheck)             Checksum: 637421DFF110AD776CA2E7755DBE81F2;5126.
  ) 
 Here is how much of TeX's memory you used:
- 31283 strings out of 478614
- 643130 string characters out of 2843122
- 1016317 words of memory out of 3000000
- 48814 multiletter control sequences out of 15000+600000
+ 31294 strings out of 478614
+ 643244 string characters out of 2843122
+ 1016318 words of memory out of 3000000
+ 48817 multiletter control sequences out of 15000+600000
  481907 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,15n,94p,496b,538s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 86i,15n,94p,515b,539s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\nshar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on AnalysisII.pdf (8 pages, 416802 bytes).
+Output written on AnalysisII.pdf (9 pages, 435351 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
- 104 named destinations out of 1000 (max. 500000)
- 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 394 PDF objects out of 1000 (max. 8388607)
+ 112 named destinations out of 1000 (max. 500000)
+ 290 words of extra memory for PDF output out of 10000 (max. 10000000)
 

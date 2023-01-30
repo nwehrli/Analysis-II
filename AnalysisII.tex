@@ -395,6 +395,7 @@ Let \(f: \X \subset \R^n \to \R^m\) and \(\X\) an open set. The Jacobi-Matrix is
     \item If $f$ is differentiable at all points $x_0 \in \X$, then $f$ is differentiable on $\X$.
     \item Having all partial derivatives defined is not sufficient to conclude Differentiability.
     \item If all partial derivatives are defined and continous, then $f$ is differentiable.
+    \item The composition of differentiable functions is differentiable.
 \end{itemize}
 \begin{mainbox}{Conclusions from Differentiability}
     If \(f,g\) are differentiable in \(x_0 \in \X\) we have:
@@ -589,6 +590,10 @@ For \(f: \R \mapsto \R^n\) we define the integral of $f$ as
 
   In general if $\gamma: [a, b] \to \R^n (t \mapsto \gamma(t))$ is a curve, then $\alpha: [a,b] \to \R^n$ with $\alpha(t) := \gamma(b+a - t)$ traces the same curve in the opposite direction. 
   
+  \subsubsection*{Length of a parameterized curve}
+  Let $\gamma: [a, b] \to \R^n$ be an \textbf{injective} and $\gamma \in C^1$. The length of the curve $gamma(t)$ can be found by 
+  \[L(\gamma) = \int_a^b |\gamma'(t)|\mathop{dt},\] where $|.|$ is the Euclidean norm.
+
 \begin{mainbox}{Line(Path) Integrals}
     Let \(\gamma : \left[a,b\right] \mapsto \R^n\) be a parameterized curve and \(\X \subset \R^n\) a set containing the image of $\gamma$, and let $f: \X \to \R^n$ be a continous function. The \textbf{Line Integral (Path Integral)} is defined as 
     \[\int_\gamma f(s) \mathop{ds} = \int_a^b f(\gamma(t)) \cdot \gamma'(t) \mathop{dt}\]
@@ -860,7 +865,7 @@ For any curve $\gamma: [a,b] \to \R^2$
  \end{enumerate}
 \end{mainbox}
 
-\section{Trigonometric formulas}
+\section{Trigonometric identities}
 
 \subsubsection*{Doubled angles}
 \begin{itemize}
@@ -893,8 +898,11 @@ For any curve $\gamma: [a,b] \to \R^2$
 \subsubsection*{Powers}
 \begin{itemize}
  \item $\sin^2(\alpha) = \frac{1}{2}(1-\cos(2\alpha))$
+ \item $\sin^3(\alpha) = (3 \sin(\alpha) - \sin(3\alpha))/4$
  \item $\cos^2(\alpha) = \frac{1}{2}(1+\cos(2\alpha))$
+ \item $\cos^3(\alpha) = (3 \cos(\alpha) - \cos(3\alpha))/4$
  \item $\tan^2(\alpha) = \frac{1-\cos(2\alpha)}{1+\cos(2\alpha)}$
+ \item $\sin^2(\alpha)\cos^2(\alpha) = (1 - \cos(4\alpha))/8$
 \end{itemize}
 
 \subsubsection*{Divers}
@@ -902,7 +910,7 @@ For any curve $\gamma: [a,b] \to \R^2$
 \begin{itemize}
  \item $\sin^2(\alpha) + \cos^2(\alpha) = 1$
  \item $\cosh^2(\alpha) - \sinh^2(\alpha) = 1$
- \item $\sin(z) = \frac{e^{iz} - e^{-iz}}{2}$ und $\cos(z) = \frac{e^{iz} + e^{-iz}}{2}$
+ \item $\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}$ und $\cos(z) = \frac{e^{iz} + e^{-iz}}{2}$
 \end{itemize}
 
 % start larger spacing in tables
@@ -1003,6 +1011,201 @@ For any curve $\gamma: [a,b] \to \R^2$
 
 % end of larger array spacing
 \endgroup
+
+\section{Sample tasks}
+Some tasks and Multiple Choice from the homework and previous exams. 
+
+Solutions are either my own, solutions published by the course (homeworks, offical exam solutions) or solutions published in the VIS comsol. Many thanks to all contributors!
+\subsection{Multiple Choice}
+Let \(F(x,y) = (F_1, F_2)(x,y) = (\frac{-y}{x^2 + y^2}, \frac{x}{x^2 + y^2})\) and let $\gamma$ be the standard parametrization of the unit circle centered at the origin and oriented counter-clockwise. Since \(\frac{\partial F_2}{\partial x} = \frac{\partial F_1}{\partial y}\), by Green's theorem it holds that \(\int_\gamma F \cdot \mathop{ds} = 0\).
+\\(A) true
+\\\textbf{(B) false}
+\\Not all partial derivatives are continous, i.e. $F \notin C^1$, which is a necessary condition for Green's theorem.
+
+\vspace{0.1 cm}
+\hrule
+\vspace{0.2 cm}
+
+The following sets are:
+\begin{itemize}
+  \item \(\{(x,y,z) \in \R^3 \mid x^2 + y^2 + z^2 < 2022\}\)
+  \\ \textbf{bounded}, closed, compact
+  \item \(\{(x,y,0) \in \R^3 \mid (x,y) \in \R'2\}\)
+  \\ bounded, \textbf{closed}, compact
+  \item \(\N \times \N \subseteq \R^2\)
+  \\ bounded, \textbf{closed}, compact
+  \item \(B = \{(\sin(1/t),\cos(1/t)) \in \R^2 \mid t \in ]0, 1/2\pi[\}\)
+  \\ \textbf{bounded, closed, compact}
+  \\ We find that \[\{(\sin(t), \cos(t)) \in \R^2 \mid t \in [2\pi, 4 \pi]\} = B\]
+  It's easy to see that, this newly defined set is closed and bounded, which therefore implies that $B$ is closed and bounded (and therefore compact).
+  \item \([-1,1]^2 \subseteq \R^2\)
+  \\\textbf{bounded, closed, compact}
+  \item \(\{(x,y,x^2-y^2) \in \R^3 \mid (x,y) \in [0,1]^2\}\)
+  \\ \textbf{bounded, closed, compact}
+\end{itemize}
+
+\vspace{0.1 cm}
+\hrule
+\vspace{0.2 cm}
+
+If $f$ is a vector field of class $C^1$ on $\R^2 -\{0\}$ and for all closed curves $\gamma:[0,1] \to \R^2 - \{0\}$, then $f$ is conservative.
+\\\textbf{(A) true}
+\\(B) false 
+
+\vspace{0.1cm}
+
+Proof by contradiction: Assume $f$ is a non-conservative vector field of class $C'$ on $\mathbb{R} - \{0\}$ and $\displaystyle \int_{\gamma} f \cdot d s = 0$ for all closed $\gamma: [0, 1] \rightarrow\mathbb{R}^2 - \{0\}$. Since $f$ is non-conservative, there exists parameterized curve $\gamma_1, \gamma_2: [0, 1] \rightarrow\mathbb{R}^2 - \{0\}$ from $a$ to $b$, where $a, b \in \mathbb{R}^2$, such that:  
+
+$$\displaystyle \int_{\gamma_1} f \cdot d s \neq \displaystyle \int_{\gamma_2} f \cdot d s$$  
+
+We let $\gamma'$ be the closed curve formed by $\gamma_1$ and the inversed curve of $\gamma_2$:
+
+$$\gamma' = \begin{cases}\gamma_1(2t) & \text{if } 0 \leq t \leq 1 / 2 \\ \gamma_2(2(1-t)) & \text{if } 1 / 2 \leq t \leq 1\end{cases}$$  
+
+We have:  
+
+$$\displaystyle \int_{\gamma'} f \cdot d s = \displaystyle \int_{\gamma_1} f \cdot d s - \displaystyle \int_{\gamma_2} f \cdot d s \neq 0$$
+
+This contradicts our assumption, $f$ must be conservative.
+
+\vspace{0.1 cm}
+\hrule
+\vspace{0.2 cm}
+The function $f: \R^2 \to \R \quad f(x,y) = |xy|$ is differentiable at $(0,0)$.
+\\\textbf{(A) true}
+\\(B) false
+\\Since $f(x,y)$ is constant, if we approach $(0,0)$ along the $x$ or $y$-Axis, we know that the differential at $(0,0)$ should be $J_f = (0,0)$, if it exists.
+\\We now use the definition of Differentiability(section 2.5), with $u = J_f(0,0)$:
+\begin{align*}
+  &\lim_{\substack{(x,y) \to (0,0) \\ (x,y) \neq (0,0)}} \frac{f(x,y)-f(0,0)-(0,0)\cdot((x,y)-(0,0))}{||(x,y)-(0,0)||}\\
+  &= \lim_{\substack{x \to (0,0) \\ x \neq (0,0)}} \frac{f(x,y)}{||(x,y)||}\\
+  &= \lim_{\substack{x \to (0,0) \\ x \neq (0,0)}} \frac{|xy|}{\sqrt[]{x^2+y^2}}
+\end{align*}
+Since $\frac{|y|}{\sqrt[]{x^2+y^2}} \leq 1$, we have $0 \leq\frac{|xy|}{\sqrt[]{x^2+y^2}} \leq |x|$. 
+By Sandwich-Theorem therefore since $|x| \to 0$ for $(x,y) \to (0,0)$, we have 
+\[\lim_{\substack{x \to (0,0) \\ x \neq (0,0)}} \frac{|xy|}{\sqrt[]{x^2+y^2}} = 0.\]
+\vspace{0.1cm}
+\hrule
+\vspace{0.2cm}
+The limit $\lim_{(x,y) \to (0,0)} \cos(\frac{x^2}{x^2 + |y|})$ exists and is finite.
+\\(A) true
+\\\textbf{(B) false}
+\\Observe that for $y=x^2$, we find the limit: $\underset{x \to 0}{\lim} \cos \left ( \frac {x^2}{2x^2}\right ) = \cos \left ( \frac 1 2 \right )$, while if $y=0$, we have: $\underset{x \to 0}{\lim} \cos \left ( \frac {x^2}{x^2}\right ) = \cos (1)$.
+
+
+\subsection{Other tasks}
+
+Compute the value $f(2\pi)$ where $f$ is the unique function on $[\pi, 2\pi]$ such that 
+\[xf'(x) = f(x) x^2\sin(x) \text{ for } \pi \leq x \leq 2\pi\]
+and $f(\pi) = 0$.
+
+\vspace{0.1cm}
+If we rewrite the equation to \(f'(x) - \frac{1}{x}f(x) = x \sin(x)\), we find that it's a linear ODE of the form $y' + a(x)y = b(x)$.
+
+Using Variation of parameters (section 1.2), we find that the solution is of the form \(f_p = K(x) e^{-A(x)}\), where $A(x) = -\ln(x)$ is the primitive of $a(x) = -\frac{1}{x}$.
+
+We now have \(f_p = K(x) e^{-(-\ln(x))} = K(x) \cdot x\).
+
+\begin{align*}
+  K(x) &= \int_{x_0}^x x\cdot \sin(x) \cdot e^{-\ln(x)} \mathop{dx} = \int_{x_0}^x x\cdot \sin(x) \cdot \frac{1}{x} \mathop{dx} =  \int_{x_0}^x \sin(x) \mathop{dx}\\
+  &= -\cos(x) + C, \ C \in \R\\
+  &\implies f_p = (-\cos(x) + C)x
+\end{align*}
+
+From $f(\pi) = 0$ we know that $(-\cos(\pi) + C) \pi = 0 \implies C = -1$. Therefore $f_p = (-\cos(x) - 1)x$ and $f(2\pi) = -4 \pi$.
+
+\vspace{0.1 cm}
+\hrule
+\vspace{0.2 cm}
+We introduce the following definition: Let $k \geq 0$ be a real number. A function $f : ]0, \infty[^3 \to \R$ is said to be \textit{homogeneous of degree k} if $f (tx, ty, tz) =t^k f(x, y, z)$ for all $x, y$ and $z$ strictly positive. 
+
+\vspace{0.2cm}
+
+Let $f$ be of class $C^1$ on $]0, \infty[^3$. For a fixed $(x, y, z) \in ]0, \infty[^3$, $k \geq 0$, and $t > 0$, define 
+\[g(t) = f(tx, ty, tz) - t^kf(x,y,z) = f(h(t)) - t^kf(x,y,z), h(t) = (tx,ty,tz).\]
+\begin{enumerate}[label=(\alph*)]
+  \item Show that $g$ is differentiable on $]0, \infty[$ and that\\ 
+  \(g'(t) = x(\partial_xf)(tx,ty,tz)+y(\partial_y f)(tx,ty,tz) + z (\partial_z f)(tx,ty,tz) - k t^{k-1}f(x,y,z)\)
+
+  Since $h$ and $f$ are differentiable, their composition is differentiable.
+
+  For the derivation of $g$ we use the chain rule for the left part:
+  \begin{align*}
+    g'(t) &= \partial f(h(t)) \cdot \partial h(t) - kt^{k-1}f(x,y,z)\\
+    &= \left(\nabla f(h(t))\right)^T \cdot (x,y,z) - kt^{k-1}f(x,y,z)\\
+    &= \left(\pdv{}{x}f(h(t)), \pdv{}{y}f(h(t)), \pdv{}{z}f(h(t))\right)^T (x,y,z) - kt^{k-1}f(x,y,z)
+  \end{align*}
+
+
+
+  \item Deduce that if $f$ is homogeneous of degree $k$, then we have
+  \[x \pdv{f}{x} + y \pdv{f}{y} + z \pdv{f}{z} = kf\]
+  Note that for $f$ homogeneous of degree $k$, $g = 0, g' = 0$. Therefore
+  \[ x(\partial_xf)(h(t))+y(\partial_y f)(h(t)) + z (\partial_z f)(h(t))) = k t^{k-1}f(x,y,z)\]
+  Note that this equation is valid for all $t > 0$, in particular for $t = 1$, which gives us our desired result:
+  \[x \pdv{f}{x} + y \pdv{f}{y} + z \pdv{f}{z} = kf\]
+  \vspace{0.1cm}
+  \hrule
+  \vspace{0.2cm}
+  Suppose that $f$ satisfies 
+  \[x \pdv{f}{x} + y \pdv{f}{y} + z \pdv{f}{z} = kf (1)\]
+  \item Show that $g$ (as defined above) satisfies $g(1) = 0$ and is a solution of the ODE 
+  \[tg' - kg = 0\] 
+  We have 
+  \begin{align*}
+    tg' - kg =& (tx)(\partial_xf)(tx,ty,tz)+(ty)(\partial_y f)(tx,ty,tz)\\ 
+    &+ (tz) (\partial_z f)(tx,ty,tz)\\ 
+    &- k t^{k}f(x,y,z) - kf(tx,ty,tz) + k t^kf(x,y,z)\\
+    =& (tx)(\partial_xf)(tx,ty,tz)+(ty)(\partial_y f)(tx,ty,tz)\\ 
+    &+ (tz) (\partial_z f)(tx,ty,tz) - kf(tx,ty,tz)\\
+    =& kf(tx,ty,tz) - kf(tx,ty,tz) (1)\\
+    =& 0
+  \end{align*}
+  For the second part we have $g(1) = f(x,y,z) -f(x,y,z) = 0$.
+  \item Deduce that $f$ is homogeneous of degree $k$.
+  
+  When considering the ODE $tg' - kg$, by seperation of variables(section 1.5), we can deduce that $g(t) = Ct^{k-1}$. 
+  
+  Since we've already proven, that $g(1) = C1^k = 0$, we follow that $C = 0$ and therefore $g(t) = 0, \forall t > 0$. 
+
+  We conclude that since $g(t) = f(tx, ty, tz) - t^kf(x,y,z)= 0, \forall t > 0$, it must hold, that 
+  \[f(tx, ty, tz) = t^kf(x,y,z), \forall t > 0.\]
+\end{enumerate}
+\vspace{0.1cm}
+\hrule
+\vspace{0.2cm}
+
+Let $f$ be any differentiable function of one variable. Show that all tangent planes of the surface 
+\[z = y \cdot f(\frac{x}{y})\]
+pass through the point $(0,0,0)$.
+\vspace{0.2cm}
+Let $G(x,y) := y \cdot f(\frac{x}{y}).$ Then the surface $z$ is equal to the graph of $G$. It holds that 
+\[\partial_x G = G_x(x,y) = f'(\frac{x}{y}),  \partial_y G = G_y(x,y) = f(\frac{x}{y}) - \frac{x}{y}f'(\frac{x}{y}).\]
+The tangent planes in the points $(x_0,y_0,G(x_0,y_0))$ (with $y \neq 0$) is 
+\begin{align*}
+  z =& G(x_0,y_0) + G_x(x_0,y_0)(x-x_0) + G_y(x_0,y_0)(y-y_0)\\
+   =& x f'\left(\frac{x_0}{y_0}\right) + y \left[f\left(\frac{x_0}{y_0}\right) - \frac{x_0}{y_0}f'\left(\frac{x_0}{y_0}\right)\right]
+\end{align*}
+The point $(0,0,0)$ satisfies this equation, which means that $(0,0,0)$ lies on this tangent plane. In other words, all tangent planes pass through the origin.
+
+\vspace{0.1cm}
+\hrule
+\vspace{0.2cm}
+
+Where does the tangent plane at $(1,1,1)$ to the surface $S = \{(x,y,e^{x-y}): (x,y \in \R^2)\}\subset \R^3$ intersect with the $z$-axis?
+
+The surface is parameterized by $f(x, y) = (x, y, e^{x-y})$. Notice that $f(1, 1) = (1, 1, 1)$ and $Df(x, y) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ e^{x-y} & -e^{x-y} \end{pmatrix}$. The tangent plane $g(x, y)$ is given by:
+
+
+\begin{align*}
+g(x, y) = & f(x_0, y_0) + Df(x_0, y_0) \begin{pmatrix} x - x_0 \\ y - y_0 \end{pmatrix}\\
+= & \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} + \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x - 1 \\ y - 1 \end{pmatrix}\\
+= & \begin{pmatrix} x \\ y \\ 1 + x - y \end{pmatrix} \overset{!}{=} \begin{pmatrix} 0 \\ 0 \\ z \end{pmatrix}\\
+\implies & x = 0, y = 0\\
+\implies & z = 1
+\end{align*}
+
+
 \section{Sources}
 This cheatsheet was inspired by previous summaries from Julian (xyquadrat) and Nicolas(Franco). 
 
