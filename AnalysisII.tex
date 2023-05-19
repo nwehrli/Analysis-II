@@ -598,7 +598,7 @@ For \(f: \R \mapsto \R^n\) we define the integral of $f$ as
   In general if $\gamma: [a, b] \to \R^n (t \mapsto \gamma(t))$ is a curve, then $\alpha: [a,b] \to \R^n$ with $\alpha(t) := \gamma(b+a - t)$ traces the same curve in the opposite direction. 
   
   \subsubsection*{Length of a parameterized curve}
-  Let $\gamma: [a, b] \to \R^n$ be an \textbf{injective} and $\gamma \in C^1$. The length of the curve $gamma(t)$ can be found by 
+  Let $\gamma: [a, b] \to \R^n$ be an \textbf{injective} and $\gamma \in C^1$. The length of the curve $\gamma(t)$ can be found by 
   \[L(\gamma) = \int_a^b |\gamma'(t)|\mathop{dt},\] where $|.|$ is the Euclidean norm.
 
 \begin{mainbox}{Line(Path) Integrals}
@@ -788,7 +788,7 @@ We can still solve this problem by seperating $\X$ into $A = [0, 1] \times [0,2]
     \item (Integral on negligible sets) For $X \subset \R^n$ compact. $X$ negligible. For any continous function on $X$ we have $\int_{X}f(x)\mathop{dx} = 0$.
     \item (Domain additivity) If $X = A_1 \cup A_2$, $A_1, A_2$ compact then for $f: X \to \R$: 
     \[\int_X f\mathop{dx} = \int_{A_1}f\mathop{dx} + \int_{A_2}f\mathop{dx} -\int_{A_1 \cap A_2}f\mathop{dx}\]
-    Of course of $A_1 \cap A_2$ is negligible we can disregard that integral.
+    Of course if $A_1 \cap A_2$ is negligible we can disregard that integral.
 \end{enumerate}
 
 
