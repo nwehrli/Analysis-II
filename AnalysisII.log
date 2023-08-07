@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.9)  9 MAY 2023 23:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.9)  28 JUL 2023 23:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -874,17 +874,17 @@ Underfull \hbox (badness 3029) in paragraph at lines 297--299
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 708.
  (C:\Users\nshar\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [5]
-Overfull \hbox (9.36714pt too wide) detected at line 751
+)
+Overfull \hbox (9.36716pt too wide) detected at line 751
 [][] \OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x\OT1/cmr/m/n/8 ) [] = [][] \OML/cmm/m/it/8 g\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x[]\OT1/cmr/m/n/8 ) [] = [][] [] []
  []
 
-
+[5]
 Overfull \hbox (14.86499pt too wide) in paragraph at lines 813--814
 []\OT1/cmr/m/n/8 Green's theo-rem on-ly con-cerns itself with func-ti-ons from a $2$-dimensional
  []
 
-[6]
+
 Underfull \hbox (badness 10000) in paragraph at lines 869--871
 []\OT1/cmr/m/n/8 Determine the pa-ra-me-ters $\OML/cmm/m/it/8 A[]; [] ; A[]$ \OT1/cmr/m/n/8 (rsp.
  []
@@ -894,22 +894,23 @@ Underfull \hbox (badness 1975) in paragraph at lines 869--871
 \OML/cmm/m/it/8 B[]; [] ; B[]$\OT1/cmr/m/n/8 ). (Mul-ti-ply both si-des of the equa-ti-
  []
 
+[6]
 <include_degrees_circle.pdf, id=249, 399.16716pt x 395.28479pt>
 File: include_degrees_circle.pdf Graphic file (type pdf)
 <use include_degrees_circle.pdf>
 Package pdftex.def Info: include_degrees_circle.pdf  used on input line 941.
 (pdftex.def)             Requested size: 248.48741pt x 246.07527pt.
-[7 <./include_degrees_circle.pdf>]
+ [7 <./include_degrees_circle.pdf>]
 Overfull \hbox (7.92365pt too wide) in paragraph at lines 1113--1114
 \OT1/cmr/m/n/8 We can de-s-cri-be the points on the El-lip-so-id, as a le-vel set of $\OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x; y; z\OT1/cmr/m/n/8 ) =
  []
 
-[8]
+
 Overfull \hbox (14.99307pt too wide) detected at line 1142
 []
  []
 
-
+[8]
 Overfull \hbox (19.1812pt too wide) detected at line 1154
 \OML/cmm/m/it/8 g\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 t\OT1/cmr/m/n/8 ) = \OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 tx; ty; tz\OT1/cmr/m/n/8 ) \OMS/cmsy/m/n/8 ^^@ \OML/cmm/m/it/8 t[]f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x; y; z\OT1/cmr/m/n/8 ) = \OML/cmm/m/it/8 f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 h\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 t\OT1/cmr/m/n/8 )) \OMS/cmsy/m/n/8 ^^@ \OML/cmm/m/it/8 t[]f\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 x; y; z\OT1/cmr/m/n/8 )\OML/cmm/m/it/8 ; h\OT1/cmr/m/n/8 (\OML/cmm/m/it/8 t\OT1/cmr/m/n/8 ) = (\OML/cmm/m/it/8 tx; ty; tz\OT1/cmr/m/n/8 )\OML/cmm/m/it/8 :
  []
@@ -931,13 +932,13 @@ Package rerunfilecheck Info: File `AnalysisII.out' has not changed.
 Here is how much of TeX's memory you used:
  31684 strings out of 476315
  653166 string characters out of 5787197
- 1904068 words of memory out of 5000000
+ 1905068 words of memory out of 5000000
  51495 multiletter control sequences out of 15000+600000
  525985 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,15n,94p,600b,638s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,15n,94p,600b,637s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\nshar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom8.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/nshar/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on AnalysisII.pdf (9 pages, 451367 bytes).
+Output written on AnalysisII.pdf (9 pages, 451695 bytes).
 PDF statistics:
  404 PDF objects out of 1000 (max. 8388607)
  112 named destinations out of 1000 (max. 500000)
